@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  title: Blueprint CRUD Operation API 
+  version: 0.0.1
+servers:
+  - description: This API will facilitate all the operations needed for the Resolution Engine and the Blueprint storage
+    url: 'http://localhost:8080/Blueprint_API'
+
+paths:
+  /elasticSearch:
+    post:
+      tags:
+        - BlueprintSearch
+      summary: Given the free text search of the Application Owner a json will be conducted
+      operationId: elasticSearch
+      responses:
+        '200':
+          description: List of Blueprints
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Esearch'
+  /blueprintStore:  
+    post:
+      tags:
+        - BlueprintStore
+      summary: Store Blueprint in the blueprint repository
+      operationId: updatePet
+      responses:
+        '405':
+          description: Invalid input
+        '200':
+          description: Blueprint Stored Succefully
+      requestBody:
+        $ref: '#/components/requestBodies/BStore'
+  /availability/{blueprintID}:
+      get:
+        tags:
+          - Field values
+        summary: get the availability of a specific blueprint
+        operationId: getUserByName
+        parameters:
+          - name: blueprint id
+            in: path
+            description: The blueprint id shppuld be defined in order to get the appropriate availability.
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: avalability int (98)
+          '400':
+            description: Invalid blueprint id supplied
+          '404':
+            description: blueprint not found
+components:
+  schemas:
+    Esearch:
+      type: object
+      required: 
+        - source
+        - query
+      properties: 
+        source: 
+          type: "array"
+          items: 
+            type: "string"
+        query: 
+          required: 
+            - bool
+          properties: 
+            bool: 
+              required: 
+                - should
+              properties: 
+                should: 
+                  type: "array"
+                  items: 
+                    type: "object"
+                    properties: 
+                      multi_match: 
+                        required: 
+                          - query
+                          - fields
+                        properties: 
+                          query: 
+                            type: "string"
+                          fields: 
+                            type: "array"
+                            items: 
+                              type: "string"
+                        type: "object"
+              type: "object"
+          type: "object"
+    Bstore:
+      type: object
+      required: 
+      - to be implemented
+      properties: 
+        to be implemented: 
+          type: "object"
+  requestBodies:
+    Esearch:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Esearch'
+      description: elastic Search Json for blueprint Discovery
+      required: true
+    BStore:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bstore'
+      description: Method for storing new blueprints
+      required: true
