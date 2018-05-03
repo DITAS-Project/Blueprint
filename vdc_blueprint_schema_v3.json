@@ -1,0 +1,722 @@
+{  
+   "type":"object",
+   "description":"This is a VDC Blueprint which consists of five sections",
+   "properties":{  
+      "INTERNAL_STRUCTURE":{  
+         "type":"object",
+         "description":"General information about the VDC Blueprint",
+         "properties":{  
+            "Overview":{  
+               "type":"object",
+               "properties":{  
+                  "name":{  
+                     "type":"string",
+                     "description":"This field should contain the name of the VDC Blueprint"
+                  },
+                  "description":{  
+                     "type":"string",
+                     "description":"This field should contain a short description of the VDC Blueprint"
+                  },
+                  "tags":{  
+                     "type":"array",
+                     "description":"Each element of this array should contain some keywords that describe the functionality of each one exposed VDC method",
+                     "items":{  
+                        "type":"object",
+                        "properties":{  
+                           "method_name":{  
+                              "type":"string"
+                           },
+                           "tags":{  
+                              "type":"array",
+                              "items":{  
+                                 "type":"string"
+                              },
+                              "minItems":1,
+                              "uniqueItems":true
+                           }
+                        },
+                        "additionalProperties":false,
+                        "required":[  
+                           "method_name",
+                           "tags"
+                        ]
+                     },
+                     "minItems":1,
+                     "uniqueItems":true
+                  }
+               },
+               "additionalProperties":false,
+               "required":[  
+                  "name",
+                  "description",
+                  "tags"
+               ]
+            },
+            "Data_Sources":{  
+               "type":"array",
+               "items":{  
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "type":"string",
+                        "description":"A name that uniquely identifies the data source in the VDC"
+                     },
+                     "type":{  
+                        "type":"string"
+                     },
+                     "parameters":{  
+                        "type":"object",
+                        "description":"Connection parameters"
+                     },
+                     "schema":{  
+                        "type":"object"
+                     }
+                  },
+                  "required":[  
+                     "name"
+                  ]
+               },
+               "minItems":1,
+               "uniqueItems":true
+            },
+            "Flow":{  
+               "type":"object",
+               "description":"The data flow that implements the VDC",
+               "properties":{  
+                  "platform":{  
+                     "enum":[  
+                        "Spark",
+                        "Node-RED"
+                     ]
+                  },
+                  "parameters":{  
+                     "type":"object"
+                  },
+                  "source_code":{  
+
+                  }
+               },
+               "additionalProperties":false,
+               "required":[  
+                  "platform"
+               ]
+            },
+            "Testing_Output_Data":{  
+               "type":"array",
+               "items":{  
+                  "type":"object",
+                  "properties":{  
+                     "method_name":{  
+                        "type":"string",
+                        "description":"name of the method, as indicated in EXPOSED_API.Methods section"
+                     },
+                     "zip_data":{  
+                        "type":"string",
+                        "description":"The URI to the zip testing output data for each one exposed VDC method",
+                        "format":"uri"
+                     }
+                  },
+                  "additionalProperties":false,
+                  "required":[  
+                     "method_name",
+                     "zip_data"
+                  ]
+               },
+               "minItems":1,
+               "uniqueItems":true
+            }
+         },
+         "additionalProperties":false,
+         "required":[  
+            "Overview",
+            "Data_Sources",
+            "Flow",
+            "Testing_Output_Data"
+         ]
+      },
+      "DATA_MANAGEMENT":{  
+         "type":"object",
+         "properties":{  
+            "functionalProperties":{  
+               "description":"functional properties specified by the Application Developer"
+            },
+            "methods":{  
+               "description":"list of methods",
+               "type":"array",
+               "items":{  
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "description":"name of the method, as indicated in EXPOSED_API.Methods section",
+                        "type":"string"
+                     },
+                     "constraints":{  
+                        "type":"object",
+                        "description":"goal trees",
+                        "properties":{  
+                           "dataUtility":{  
+                              "type":"object",
+                              "description":"data utility goal tree",
+                              "properties":{  
+                                 "goals":{  
+                                    "type":"array",
+                                    "items":{  
+                                       "type":"object",
+                                       "description":"goal definition",
+                                       "properties":{  
+                                          "id":{  
+                                             "type":"string",
+                                             "description":"id of the goal"
+                                          },
+                                          "name":{  
+                                             "type":"string",
+                                             "description":"name of the goal"
+                                          },
+                                          "weight":{  
+                                             "type":"string",
+                                             "description":"weight assigned to the goal"
+                                          },
+                                          "metrics":{  
+                                             "type":"array",
+                                             "items":{  
+                                                "type":"object",
+                                                "description":"definition of the metric",
+                                                "properties":{  
+                                                   "id":{  
+                                                      "description":"id of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "name":{  
+                                                      "description":"name of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "type":{  
+                                                      "description":"type of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "properties":{  
+                                                      "description":"properties related to the metric",
+                                                      "type":"array",
+                                                      "items":{  
+                                                         "type":"object",
+                                                         "properties":{  
+                                                            "name":{  
+                                                               "description":"name of the property",
+                                                               "type":"string"
+                                                            },
+                                                            "unit":{  
+                                                               "description":"unit of measure of the property",
+                                                               "type":"string"
+                                                            },
+                                                            "maximum":{  
+                                                               "description":"lower limit of the offered property",
+                                                               "type":"number"
+                                                            },
+                                                            "minimum":{  
+                                                               "description":"upper limit of the offered property",
+                                                               "type":"number"
+                                                            },
+                                                            "value":{  
+                                                               "description":"value of the property",
+                                                               "anyOf":[  
+                                                                  {  
+                                                                     "type":"string"
+                                                                  },
+                                                                  {  
+                                                                     "type":"object"
+                                                                  },
+                                                                  {  
+                                                                     "type":"array"
+                                                                  }
+                                                               ]
+                                                            }
+                                                         }
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           },
+                           "security":{  
+                              "type":"object",
+                              "description":"security goal tree",
+                              "properties":{  
+                                 "goals":{  
+                                    "type":"array",
+                                    "items":{  
+                                       "type":"object",
+                                       "description":"goal definition",
+                                       "properties":{  
+                                          "id":{  
+                                             "type":"string",
+                                             "description":"id of the goal"
+                                          },
+                                          "name":{  
+                                             "type":"string",
+                                             "description":"name of the goal"
+                                          },
+                                          "metrics":{  
+                                             "type":"array",
+                                             "items":{  
+                                                "type":"object",
+                                                "description":"definition of the property",
+                                                "properties":{  
+                                                   "id":{  
+                                                      "description":"id of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "name":{  
+                                                      "description":"name of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "type":{  
+                                                      "description":"type of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "properties":{  
+                                                      "description":"properties related to the metric",
+                                                      "type":"array",
+                                                      "items":{  
+                                                         "type":"object",
+                                                         "properties":{  
+                                                            "name":{  
+                                                               "description":"name of the property",
+                                                               "type":"string"
+                                                            },
+                                                            "unit":{  
+                                                               "description":"unit of measure of the property",
+                                                               "type":"string"
+                                                            },
+                                                            "maximum":{  
+                                                               "description":"lower limit of the offered property",
+                                                               "type":"number"
+                                                            },
+                                                            "minimum":{  
+                                                               "description":"upper limit of the offered property",
+                                                               "type":"number"
+                                                            },
+                                                            "value":{  
+                                                               "description":"value of the property",
+                                                               "anyOf":[  
+                                                                  {  
+                                                                     "type":"string"
+                                                                  },
+                                                                  {  
+                                                                     "type":"object"
+                                                                  },
+                                                                  {  
+                                                                     "type":"array"
+                                                                  }
+                                                               ]
+                                                            }
+                                                         }
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           },
+                           "privacy":{  
+                              "type":"object",
+                              "description":"privacy goal tree",
+                              "properties":{  
+                                 "goals":{  
+                                    "type":"array",
+                                    "items":{  
+                                       "type":"object",
+                                       "description":"goal definition",
+                                       "properties":{  
+                                          "id":{  
+                                             "type":"string",
+                                             "description":"id of the goal"
+                                          },
+                                          "name":{  
+                                             "type":"string",
+                                             "description":"name of the goal"
+                                          },
+                                          "metrics":{  
+                                             "type":"array",
+                                             "items":{  
+                                                "type":"object",
+                                                "description":"definition of the property",
+                                                "properties":{  
+                                                   "id":{  
+                                                      "description":"id of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "name":{  
+                                                      "description":"name of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "type":{  
+                                                      "description":"type of the metric",
+                                                      "type":"string"
+                                                   },
+                                                   "properties":{  
+                                                      "description":"properties related to the metric",
+                                                      "type":"array",
+                                                      "items":{  
+                                                         "type":"object",
+                                                         "properties":{  
+                                                            "name":{  
+                                                               "description":"name of the property",
+                                                               "type":"string"
+                                                            },
+                                                            "unit":{  
+                                                               "description":"unit of measure of the property",
+                                                               "type":"string"
+                                                            },
+                                                            "maximum":{  
+                                                               "description":"lower limit of the offered property",
+                                                               "type":"number"
+                                                            },
+                                                            "minimum":{  
+                                                               "description":"upper limit of the offered property",
+                                                               "type":"number"
+                                                            },
+                                                            "value":{  
+                                                               "description":"value of the property",
+                                                               "anyOf":[  
+                                                                  {  
+                                                                     "type":"string"
+                                                                  },
+                                                                  {  
+                                                                     "type":"object"
+                                                                  },
+                                                                  {  
+                                                                     "type":"array"
+                                                                  }
+                                                               ]
+                                                            }
+                                                         }
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "required":[  
+                     "name",
+                     "constraints"
+                  ]
+               }
+            }
+         },
+         "required":[  
+            "functionalProperties",
+            "methods"
+         ]
+      },
+      "ABSTRACT_PROPERTIES":{  
+         "type":"object",
+         "properties":{  
+            "methods":{  
+               "description":"list of methods",
+               "type":"array",
+               "items":{  
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "description":"name of the method, as indicated in EXPOSED_API.Methods section",
+                        "type":"string"
+                     },
+                     "constraints":{  
+                        "type":"object",
+                        "description":"goal trees",
+                        "properties":{  
+                           "dataUtility":{  
+                              "type":"object",
+                              "description":"data utility goal tree",
+                              "properties":{  
+                                 "treeStructure":{  
+                                    "type":"object",
+                                    "properties":{  
+                                       "type":{  
+                                          "description":"type of node (AND or OR)",
+                                          "type":"string"
+                                       },
+                                       "children":{  
+                                          "type":"array",
+                                          "items":{  
+                                             "$ref":"#/properties/DATA_MANAGEMENT/properties/methods/items/properties/constraints/properties/dataUtility/properties/goals/items"
+                                          }
+                                       },
+                                       "leaves":{  
+                                          "type":"array",
+                                          "items":{  
+                                             "type":"string"
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           },
+                           "security":{  
+                              "type":"object",
+                              "description":"security goal tree",
+                              "properties":{  
+                                 "treeStructure":{  
+                                    "type":"object",
+                                    "properties":{  
+                                       "type":{  
+                                          "description":"type of node (AND or OR)",
+                                          "type":"string"
+                                       },
+                                       "children":{  
+                                          "type":"array",
+                                          "items":{  
+                                             "$ref":"#/properties/DATA_MANAGEMENT/properties/methods/items/properties/constraints/properties/security/properties/goals/items"
+                                          }
+                                       },
+                                       "leaves":{  
+                                          "type":"array",
+                                          "items":{  
+                                             "type":"string"
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           },
+                           "privacy":{  
+                              "type":"object",
+                              "description":"privacy goal tree",
+                              "properties":{  
+                                 "treeStructure":{  
+                                    "type":"object",
+                                    "properties":{  
+                                       "type":{  
+                                          "description":"type of node (AND or OR)",
+                                          "type":"string"
+                                       },
+                                       "children":{  
+                                          "type":"array",
+                                          "items":{  
+                                             "$ref":"#/properties/DATA_MANAGEMENT/properties/methods/items/properties/constraints/properties/privacy/properties/goals/items"
+                                          }
+                                       },
+                                       "leaves":{  
+                                          "type":"array",
+                                          "items":{  
+                                             "type":"string"
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "COOKBOOK_APPENDIX":{  
+         "type":"object",
+         "description":"Deployment Information of the VDC Blueprint",
+         "properties":{  
+            "name":{  
+               "type":"string"
+            },
+            "description":{  
+               "type":"string"
+            },
+            "Infrastructure":{  
+               "type":"array",
+               "description":"an array with the description of the infrastructure",
+               "items":{  
+                  "title":"an infrastructure definition",
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "type":"string"
+                     },
+                     "description":{  
+                        "type":"string"
+                     },
+                     "type":{  
+                        "type":"string"
+                     },
+                     "on-line":{  
+                        "type":"boolean"
+                     },
+                     "api_endpoint":{  
+                        "type":"string"
+                     },
+                     "api_type":{  
+                        "type":"string"
+                     },
+                     "keypair_id":{  
+                        "type":"string"
+                     },
+                     "resources":{  
+                        "type":"array",
+                        "items":{  
+                           "type":"object",
+                           "properties":{  
+                              "name":{  
+                                 "type":"string"
+                              },
+                              "type":{  
+                                 "type":"string"
+                              },
+                              "cpus":{  
+                                 "type":"string"
+                              },
+                              "ram":{  
+                                 "type":"string"
+                              },
+                              "disk":{  
+                                 "type":"string"
+                              },
+                              "generate_ssh_keys":{  
+                                 "type":"boolean"
+                              },
+                              "ssh_keys_id":{  
+                                 "type":"string"
+                              },
+                              "role":{  
+                                 "type":"string"
+                              },
+                              "baseimage":{  
+                                 "type":"string"
+                              },
+                              "arch":{  
+                                 "type":"string"
+                              },
+                              "os":{  
+                                 "type":"string"
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "provision":{  
+               "type":"object",
+               "properties":{  
+                  "provisioner":{  
+                     "type":"string"
+                  },
+                  "provisioner_src":{  
+                     "type":"string"
+                  },
+                  "components":{  
+                     "type":"array",
+                     "items":{  
+                        "type":"object",
+                        "component_name":{  
+                           "type":"string"
+                        }
+                     },
+                     "nodes":{  
+                        "type":"array",
+                        "items":{  
+                           "type":"string"
+                        }
+                     },
+                     "conf_descriptor":{  
+                        "type":"string"
+                     },
+                     "params":{  
+                        "type":"object",
+                        "additionalProperties":{  
+                           "type":"string",
+                           "description":"node_names"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "EXPOSED_API":{  
+         "title":"CAF API",
+         "type":"object",
+         "properties":{  
+            "Methods":{  
+               "type":"array",
+               "items":{  
+                  "title":"An exposed VDC method",
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "type":"string",
+                        "description":"The name of each method must be unique, meaning that different methods MUST have different names",
+                        "pattern":"^([a-zA-Z0-9]+-)*[a-zA-Z0-9]+$|^([a-zA-Z0-9]+_)*[a-zA-Z0-9]+$"
+                     },
+                     "description":{  
+                        "type":"string",
+                        "description":"Free text that briefly describes the functionality of the method"
+                     },
+                     "requestBody_schema":{  
+                        "type":"object",
+                        "description":"The JSON schema of the body of an HTTP request to the method"
+                     },
+                     "output_schema":{  
+                        "type":"object",
+                        "description":"The output JSON schema of the method"
+                     },
+                     "data_sources":{  
+                        "type":"array",
+                        "description":"An array that contains all the names of the data sources, as indicated in INTERNAL_STRUCTURE.Data_Sources section, accessed by the method",
+                        "items":{  
+                           "type":"string"
+                        },
+                        "minItems":1,
+                        "uniqueItems":true
+                     },
+                     "parameters":{  
+                        "description":"Any other parameters that the Data Administrator would like to add to the method"
+                     }
+                  },
+                  "additionalProperties":false,
+                  "required":[  
+                     "name",
+                     "output_schema",
+                     "data_sources"
+                  ]
+               },
+               "minItems":1,
+               "uniqueItems":true
+            },
+            "RESTful_API":{  
+               "description":"The complete API of the VDC, written according to the OpenAPI Specification or any other Specification"
+            },
+            "general_parameters":{  
+               "description":"Any other parameters that the Data Administrator would like to add to the API"
+            }
+         },
+         "additionalProperties":false,
+         "required":[  
+            "Methods",
+            "RESTful_API"
+         ]
+      }
+   },
+   "additionalProperties":false,
+   "required":[  
+      "INTERNAL_STRUCTURE",
+      "DATA_MANAGEMENT",
+      "ABSTRACT_PROPERTIES",
+      "COOKBOOK_APPENDIX",
+      "EXPOSED_API"
+   ]
+}
