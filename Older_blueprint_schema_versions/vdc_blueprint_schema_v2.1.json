@@ -1,0 +1,571 @@
+{  
+   "$schema":"http://json-schema.org/draft-06/schema#",
+   "type":"object",
+   "description":"This is a VDC Blueprint which consists of five sections and a UUID",
+   "properties":{  
+      "UUID":{  
+         "type":"string",
+         "description":"The UUID will be filled by the system"
+      },
+      "INTERNAL_STRUCTURE":{  
+         "type":"object",
+         "description":"General information about the VDC Blueprint",
+         "properties":{  
+            "Overview":{  
+               "type":"object",
+               "properties":{  
+                  "name":{  
+                     "type":"string",
+                     "description":"This field should contain the name of the VDC Blueprint",
+                     "example":"Data for weather forecast in Europe"
+                  },
+                  "description":{  
+                     "type":"string",
+                     "description":"This field should contain a short description of the VDC Blueprint"
+                  },
+                  "topic":{  
+                     "enum":[  
+                        "Agriculture",
+                        "Development",
+                        "Economy",
+                        "Education",
+                        "Energy",
+                        "Environment",
+                        "Finance",
+                        "Government",
+                        "Health",
+                        "Innovation and Technology",
+                        "Jobs",
+                        "Society",
+                        "Weather"
+                     ],
+                     "description":"This field should contain one of the values included in the enum array, we will update the categories whenever we define them"
+                  },
+                  "keywords":{  
+                     "type":"array",
+                     "description":"This field should contain some keywords that describe the VDC Blueprint",
+                     "items":{  
+                        "type":"string"
+                     },
+                     "minItems":1,
+                     "uniqueItems":true
+                  }
+               },
+               "additionalProperties":false,
+               "required":[  
+                  "name",
+                  "description",
+                  "topic",
+                  "keywords"
+               ]
+            },
+            "Data_Sources":{  
+               "type":"array",
+               "items":{  
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "type":"string",
+                        "description":"An explanation about the purpose of this instance.",
+                        "examples":[  
+                           "MinioDS1"
+                        ]
+                     },
+                     "type":{  
+                        "type":"string",
+                        "description":"An explanation about the purpose of this instance.",
+                        "examples":[  
+                           "sql"
+                        ]
+                     },
+                     "parameters":{  
+                        "type":"object"
+                     }
+                  }
+               },
+               "minItems":1,
+               "uniqueItems":true
+            },
+            "Flow":{  
+               "type":"object",
+               "description":"The Node-RED flow that implements the VDC",
+               "properties":{  
+                  "platform":{  
+                     "enum":[  
+                        "NodeRED"
+                     ],
+                     "description":"The name of the platform for the flow"
+                  },
+                  "source_code":{  
+
+                  }
+               },
+               "additionalProperties":false,
+               "required":[  
+                  "platform",
+                  "source_code"
+               ]
+            },
+            "Testing_Output_Data":{  
+               "type":"array",
+               "items":{  
+                  "type":"object",
+                  "properties":{  
+                     "method_name":{  
+                        "type":"string"
+                     },
+                     "data":{  
+
+                     }
+                  },
+                  "additionalProperties":false,
+                  "required":[  
+                     "method_name",
+                     "data"
+                  ]
+               },
+               "uniqueItems":true
+            }
+         },
+         "additionalProperties":false,
+         "required":[  
+            "Overview",
+            "Data_Sources",
+            "Flow"
+         ]
+      },
+      "DATA_MANAGEMENT":{  
+         "type":"object",
+         "properties":{
+            "functionalProperties":{
+                "description": "functional properties specified by the application developer"                
+            },
+            "dataUtilityAndSecurity":{
+               "description": "non-functional properties specified by the application developer",
+               "type":"object",
+               "properties":{
+                    "dataUtility":{
+                        "description": "data utility specification",
+                        "type":"object",
+                        "properties":{
+                            "properties":{
+                                "description": "an array, of name properties",
+                                "type": "array", 
+                                "items": { 
+                                    "type": "object",
+                                     "properties":{
+                                         "id":{
+                                            "description": "ID of the property",
+                                            "type": "string"
+                                         },
+                                         "name":{
+                                            "description": "name of the property",
+                                            "type": "string"
+                                         },
+                                         
+                                        "metrics":{
+                                            "description": "an array with the metrics specified for a property",
+                                            "type": "array", 
+                                            "items": { 
+                                                "type": "object",
+                                                "properties":{
+                                                     "name":{
+                                                        "description": "name of the metric",
+                                                        "type": "string"
+                                                     },
+                                                     "unit":{
+                                                        "description": "measure unit",
+                                                        "type": "string"
+                                                     },
+                                                     "lowerLimit":{
+                                                        "description": "lower limit of the offered property",
+                                                        "type": "number"
+                                                     },
+                                                     "upperLimit":{
+                                                        "description": "upper limit of the offered property",
+                                                        "type": "number"
+                                                     },
+                                                     "additionalInfo":{
+                                                        "description":"contextual additional info",
+                                                        "type": "object",
+                                                         "properties":{
+
+                                                         }
+                                                    }
+                                                },
+                                                 "required":[  
+                                                    "name",
+                                                    "unit"
+                                                 ]
+                                            }  
+                                        }
+                                    },
+                                     "required":[  
+                                        "id",
+                                        "name",
+                                         "metrics"
+                                     ]
+                                }
+                            }
+                        },
+                        "required":[  
+                            "properties"
+                        ]
+                    },
+                    "security":{  
+                        "type":"object",
+                        "properties":{
+                            "properties":{
+                                "type": "array", 
+                                "items": { 
+                                    "type": "object",
+                                     "properties":{
+                                         "ID":{
+                                            "description": "name of the property",
+                                            "type": "string"
+                                         },
+                                         "name":{
+                                            "description": "name of the property",
+                                            "type": "string"
+                                         },
+                                        "properties":{
+                                            "type": "array", 
+                                            "items": { 
+                                                "type": "object",
+                                                "properties":{
+                                                     "name":{
+                                                        "description": "name of the property",
+                                                        "type": "string"
+                                                     },
+                                                     "unit":{
+                                                        "description": "measure unit",
+                                                        "type": "string"
+                                                     },
+                                                     "lowerLimit":{
+                                                        "description": "lower limit of the offered property",
+                                                        "type": "number"
+                                                     },
+                                                     "upperLimit":{
+                                                        "description": "upper limit of the offered property",
+                                                        "type": "number"
+                                                     },
+                                                     "value":{
+                                                        "description": "value of the property",
+                                                        "type": "string"
+                                                     }
+                                                }
+                                            }  
+                                        }
+                                    }
+                                }
+                            },
+                            "identification":{
+                                "type":"object",
+                                "properties":{  
+                                    "app":{
+                                        "description": "name of the authorized app?",
+                                        "type": "string"
+                                    },
+                                    "purposes":{
+                                        "description": "representation of available purposes?",
+                                        "type": "object"
+                                    },
+                                    "Guarantors":{
+                                        "description": "trusted authorities (eg. government, institute etc.)",
+                                        "type": "object"
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                },
+                "required":[  
+                    "dataUtility",
+                    "security"
+                ]
+            }
+         },
+         "required":[  
+            "functionalProperties",
+            "dataUtilityAndSecurity"
+         ]
+      },
+      "ABSTRACT_PROPERTIES":{  
+         "type":"object",
+         "properties":{  
+            "Product_Properties":{  
+               "type":"object",
+               "properties":{  
+                  "data_administrator_reputation":{  
+                     "type":"integer",
+                     "description":"The data administrator reputation will be filled by the system",
+                     "minimum":0,
+                     "maximum":5,
+                     "exclusiveMinimum":true
+                  },
+                  "vdc_blueprint_popularity":{  
+                     "type":"integer",
+                     "description":"The popularity will be filled by the system",
+                     "minimum":0,
+                     "maximum":5,
+                     "exclusiveMinimum":true
+                  },
+                  "vdc_blueprint_rating":{  
+                     "type":"integer",
+                     "description":"The VDC Blueprint rating will be filled by the system",
+                     "minimum":0,
+                     "maximum":5,
+                     "exclusiveMinimum":true
+                  },
+                  "price":{  
+                     "type":"array",
+                     "description":"This field should contain the price of the VDC Blueprint",
+                     "items":{  
+                        "type":"object",
+                        "properties":{  
+                           "lower_limit":{  
+                              "type":"integer",
+                              "minimum":0
+                           },
+                           "upper_limit":{  
+                              "type":"integer"
+                           },
+                           "price":{  
+                              "type":"number",
+                              "minimum":0
+                           }
+                        },
+                        "required":[  
+                           "lower_limit",
+                           "upper_limit",
+                           "price"
+                        ]
+                     },
+                     "minItems":1,
+                     "uniqueItems":true
+                  }
+               },
+               "required":[  
+                  "price"
+               ]
+            },
+            "Quality_Properties":{  
+               "type":"object",
+               "properties":{  
+                  "scalability":{  
+                     "type":"boolean"
+                  },
+                  "elasticity":{  
+                     "type":"boolean"
+                  }
+               },
+               "required":[  
+                  "scalability",
+                  "elasticity"
+               ]
+            }},
+            "required":[  
+               "Product_Properties",
+               "Quality_Properties"
+            ]
+         }
+      ,
+      "COOKBOOK_APPENDIX":{  
+
+      },
+      "EXPOSED_API":{  
+         "title":"CAF API",
+         "type":"object",
+         "properties":{  
+            "Methods":{  
+               "type":"array",
+               "items":{  
+                  "title":"An exposed VDC method",
+                  "type":"object",
+                  "properties":{  
+                     "name":{  
+                        "type":"string"
+                     },
+                     "description":{  
+                        "type":"string"
+                     },
+                     "attributes":{  
+                        "type":"array",
+                        "items":[  
+                           {  
+                              "enum":[  
+                                 "purpose"
+                              ]
+                           },
+                           {  
+                              "enum":[  
+                                 "requester_id"
+                              ]
+                           }
+                        ],
+                        "minItems":2,
+                        "uniqueItems":true
+                     },
+                     "HTTP_REST_API":{  
+                        "type":"object",
+                        "properties":{  
+                           "Method":{  
+                              "enum":[  
+                                 "POST"
+                              ]
+                           },
+                           "Body":{  
+                              "type":"object",
+                              "properties":{  
+                                 "method_name":{  
+                                    "type":"string"
+                                 },
+                                 "attributes":{  
+                                    "description":"The JSON schema of the attributes of the exposed VDC method, written according to the draft-06 specification",
+                                    "type":"object",
+                                    "properties":{  
+                                       "type":{  
+                                          "enum":[  
+                                             "object"
+                                          ]
+                                       },
+                                       "properties":{  
+                                          "type":"object",
+                                          "properties":{  
+                                             "purpose":{  
+                                                "type":"object",
+                                                "properties":{  
+                                                   "type":{  
+                                                      "enum":[  
+                                                         "string"
+                                                      ]
+                                                   }
+                                                },
+                                                "required":[  
+                                                   "type"
+                                                ]
+                                             },
+                                             "requester_id":{  
+                                                "type":"object",
+                                                "properties":{  
+                                                   "type":{  
+                                                      "enum":[  
+                                                         "string"
+                                                      ]
+                                                   }
+                                                },
+                                                "required":[  
+                                                   "type"
+                                                ]
+                                             }
+                                          },
+                                          "required":[  
+                                             "purpose",
+                                             "requester_id"
+                                          ]
+                                       },
+                                       "required":{  
+                                          "type":"array",
+                                          "items":[  
+                                             {  
+                                                "enum":[  
+                                                   "purpose"
+                                                ]
+                                             },
+                                             {  
+                                                "enum":[  
+                                                   "requester_id"
+                                                ]
+                                             }
+                                          ],
+                                          "minItems":2,
+                                          "uniqueItems":true
+                                       }
+                                    },
+                                    "required":[  
+                                       "type",
+                                       "properties",
+                                       "required"
+                                    ]
+                                 },
+                                 "example":{  
+                                    "description":"A body example of an HTTP request to the exposed VDC method",
+                                    "type":"object"
+                                 }
+                              },
+                              "additionalProperties":false,
+                              "required":[  
+                                 "method_name",
+                                 "attributes"
+                              ]
+                           },
+                           "Headers":{  
+                              "type":"array",
+                              "items":{  
+                                 "title":"An HTTP request header of the exposed VDC method",
+                                 "type":"object"
+                              },
+                              "uniqueItems":true
+                           }
+                        },
+                        "additionalProperties":false,
+                        "required":[  
+                           "Method",
+                           "Body",
+                           "Headers"
+                        ]
+                     },
+                     "output_schema":{  
+                        "description":"The output JSON schema of the exposed VDC method, written according to the draft-06 specification",
+                        "type":"object"
+                     }
+                  },
+                  "additionalProperties":false,
+                  "required":[  
+                     "name",
+                     "description",
+                     "attributes",
+                     "HTTP_REST_API",
+                     "output_schema"
+                  ]
+               },
+               "minItems":1,
+               "uniqueItems":true
+            },
+            "URI":{  
+               "type":"object",
+               "properties":{  
+                  "format":{  
+                     "enum":[  
+                        "hostname:port/CAF"
+                     ]
+                  },
+                  "example":{  
+                     "type":"string",
+                     "format":"uri"
+                  }
+               },
+               "additionalProperties":false,
+               "required":[  
+                  "format"
+               ]
+            }
+         },
+         "additionalProperties":false,
+         "required":[  
+            "Methods",
+            "URI"
+         ]
+      }
+   },
+   "additionalProperties":false,
+   "required":[  
+      "UUID",
+      "INTERNAL_STRUCTURE",
+      "DATA_MANAGEMENT",
+      "ABSTRACT_PROPERTIES",
+      "COOKBOOK_APPENDIX",
+      "EXPOSED_API"
+   ]
+}
