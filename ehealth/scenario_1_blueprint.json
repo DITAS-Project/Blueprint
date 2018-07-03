@@ -44,8 +44,11 @@
 						"blood",
 						"test",
 						"component",
+						"age-range",
 						"research",
-						"age-range"
+						"pseudonymization",
+						"anonymization",
+						"GDPR-compliance"
 					]
 				}
 			]
@@ -162,40 +165,236 @@
 	},
 	"DATA_MANAGEMENT": [
 		{
-			"method_id":"getPatientBiographicalData",
-			"attributes":
-            {
-                "dataUtility": [],
-                "security": [],
-                "privacy": []
-            }
+			"method_id": "getPatientBiographicalData",
+			"attributes": {
+				"dataUtility": [
+
+				],
+				"security": [
+					{
+						"name": "transport encryption",
+						"properties": [
+							{
+								"name": "Protocol",
+								"unit": "enum",
+								"value": "TLS"
+							},
+							{
+								"name": "Algorithm",
+								"unit": "enum",
+								"value": "AES"
+							},
+							{
+								"name": "Keylength",
+								"unit": "number",
+								"value": "128"
+							}
+						]
+					},
+					{
+						"name": "tracing",
+						"properties": [
+							{
+								"name": "level",
+								"unit": "enum",
+								"value": "datasource"
+							},
+							{
+								"name": "samplerate",
+								"unit": "percentage",
+								"value": "1"
+							},
+							{
+								"name": "instrumentation",
+								"unit": "enum",
+								"value": "VDC"
+							}
+						]
+					}
+				],
+				"privacy": [
+
+				]
+			}
 		},
 		{
-			"method_id":"getLastValuesForBloodTest",
-			"attributes":
-            {
-                "dataUtility": [],
-                "security": [],
-                "privacy": []
-            }
+			"method_id": "getLastValuesForBloodTest",
+			"attributes": {
+				"dataUtility": [
+
+				],
+				"security": [
+					{
+						"name": "transport encryption",
+						"properties": [
+							{
+								"name": "Protocol",
+								"unit": "enum",
+								"value": "TLS"
+							},
+							{
+								"name": "Algorithm",
+								"unit": "enum",
+								"value": "AES"
+							},
+							{
+								"name": "Keylength",
+								"unit": "number",
+								"value": "128"
+							}
+						]
+					},
+					{
+						"name": "tracing",
+						"properties": [
+							{
+								"name": "level",
+								"unit": "enum",
+								"value": "datasource"
+							},
+							{
+								"name": "samplerate",
+								"unit": "percentage",
+								"value": "1"
+							},
+							{
+								"name": "instrumentation",
+								"unit": "enum",
+								"value": "VDC"
+							}
+						]
+					}
+				],
+				"privacy": [
+
+				]
+			}
 		},
 		{
-			"method_id":"getAllValuesForBloodTestComponent",
-			"attributes":
-            {
-                "dataUtility": [],
-                "security": [],
-                "privacy": []
-            }
+			"method_id": "getAllValuesForBloodTestComponent",
+			"attributes": {
+				"dataUtility": [
+
+				],
+				"security": [
+					{
+						"name": "transport encryption",
+						"properties": [
+							{
+								"name": "Protocol",
+								"unit": "enum",
+								"value": "TLS"
+							},
+							{
+								"name": "Algorithm",
+								"unit": "enum",
+								"value": "AES"
+							},
+							{
+								"name": "Keylength",
+								"unit": "number",
+								"value": "128"
+							}
+						]
+					},
+					{
+						"name": "tracing",
+						"properties": [
+							{
+								"name": "level",
+								"unit": "enum",
+								"value": "datasource"
+							},
+							{
+								"name": "samplerate",
+								"unit": "percentage",
+								"value": "1"
+							},
+							{
+								"name": "instrumentation",
+								"unit": "enum",
+								"value": "VDC"
+							}
+						]
+					}
+				],
+				"privacy": [
+
+				]
+			}
 		},
 		{
-			"method_id":"getBloodTestComponentAverage",
-			"attributes":
-            {
-                "dataUtility": [],
-                "security": [],
-                "privacy": []
-            }
+			"method_id": "getBloodTestComponentAverage",
+			"attributes": {
+				"dataUtility": [
+
+				],
+				"security": [
+					{
+						"name": "transport encryption",
+						"properties": [
+							{
+								"name": "Protocol",
+								"unit": "enum",
+								"value": "TLS"
+							},
+							{
+								"name": "Algorithm",
+								"unit": "enum",
+								"value": "AES"
+							},
+							{
+								"name": "Keylength",
+								"unit": "number",
+								"value": "128"
+							}
+						]
+					},
+					{
+						"name": "tracing",
+						"properties": [
+							{
+								"name": "level",
+								"unit": "enum",
+								"value": "datasource"
+							},
+							{
+								"name": "samplerate",
+								"unit": "percentage",
+								"value": "1"
+							},
+							{
+								"name": "instrumentation",
+								"unit": "enum",
+								"value": "VDC"
+							}
+						]
+					}
+				],
+				"privacy": [
+					{
+						"name ": "purpose_control",
+						"properties": [
+							{
+								"name": "available purpose",
+								"unit": "list",
+								"value": [
+									"research",
+									"medical research",
+									"nutritional research"
+								]
+							},
+							{
+								"name": "guarantor",
+								"unit": "list",
+								"value": [
+									"d63d0e21fdc05f618d55ef306c54af82"
+								]
+							}
+						]
+					}
+				]
+			}
 		}
 	],
 	"ABSTRACT_PROPERTIES": {
@@ -560,7 +759,7 @@
 			"/blood-test/component/{component}/average/{startAgeRange}-{endAgeRange}": {
 				"get": {
 					"summary": "Get average of component over an age range",
-					"description": "This method returns the average value for a specific blood test component in a specific age range, to be used by researchers",
+					"description": "This method returns the average value for a specific blood test component in a specific age range, to be used by researchers. Since data are for researchers, patients' identifiers and quasi-identifiers won't be returned, making the output of this method anonymized.",
 					"operationId": "getBloodTestComponentAverage",
 					"parameters": [
 						{
