@@ -1,8 +1,8 @@
 {
 	"INTERNAL_STRUCTURE": {
 		"Overview": {
-			"name": "DITAS Machine 1 - Soraluce FS",
-			"description": "VDC blueprint for the 'DITAS Machines 1 - Soraluce FS' at Ideko",
+			"name": "DITAS Machine 3 - Soraluce FS",
+			"description": "VDC blueprint for the 'DITAS Machines 3 - Soraluce FS' at Ideko",
 			"tags": [{
 					"method_id": "GetLocations",
 					"tags": ["location", "list", "json"]
@@ -51,8 +51,8 @@
 				"class": "time-series database",
 				"type": "influxdb",
 				"parameters": {
-					"ip": "172.16.33.125",
-					"port": "****",
+					"ip": "172.16.33.202",
+					"port": "8086",
 					"user": "****",
 					"password": "****",
 					"database": "****"
@@ -67,8 +67,8 @@
 				"class": "data stream",
 				"type": "REST API",
 				"parameters": {
-					"url": "https://172.16.33.125",
-					"port": "****"
+					"url": "https://172.16.33.202",
+					"port": "8006"
 				}
 			},
 			{
@@ -959,7 +959,571 @@
 			}
 		]
 	},
-	"DATA_MANAGEMENT": {},
+	"DATA_MANAGEMENT":
+    [
+		{
+			"method_id":"GetLocations",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetMachinesByLocation",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetCaptureGroupsByMachine",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetIndicatorsByCaptureGroup",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetLocationDetails",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetMachineDetails",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetCaptureGroupDetails",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetIndicatorDetails",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "responseTime_1",
+                        "description": "ResponseTime 1",
+                        "type": "ResponseTime",
+                        "properties": 
+						{
+							"responseTime": 
+							{
+								"maximum":1,
+								"unit": "second"
+							}
+						}
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":100,
+								"unit": "percentage"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetHistoricalData",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":80,
+								"unit": "percentage"
+							}
+						}
+                    },
+                    {
+                        "id": "throughput_2",
+                        "description": "Throughput",
+                        "type": "Throughput",
+                        "properties": 
+						{
+							"throughput": 
+							{
+								"maximum":2,
+								"unit": "MB/s"
+							}
+						}
+                    },
+                    {
+                        "id": "precision_08",
+                        "description": "Precision",
+                        "type": "Precision",
+                        "properties": 
+						{
+							"precision": 
+							{
+								"minimum":0.8,
+								"unit": "none"
+							}
+						}
+                    },
+                    {
+                        "id": "accuracy_09",
+                        "description": "Accuracy",
+                        "type": "Accuracy",
+                        "properties": 
+						{
+							"accuracy": 
+							{
+								"minimum":0.9,
+								"unit": "none"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		},
+		{
+			"method_id":"GetStreamingData",
+			"attributes":
+            {
+                "dataUtility": 
+                [
+                    {
+                        "id": "availability_9099",
+                        "description":"Availability 90-99",
+                        "type":"Availability",
+						"properties": 
+						{
+							"availability": 
+							{
+								"unit": "percentage",
+								"minimum":90,
+								"maximum":99
+							}				
+						}						
+                    },
+                    {
+                        "id": "processCompleteness_90",
+                        "description": "Process completeness 90",
+                        "type": "Process completeness",
+                        "properties": 
+						{
+							"completeness": 
+							{
+								"minimum":80,
+								"unit": "percentage"
+							}
+						}
+                    },
+                    {
+                        "id": "timeliness_065",
+                        "description": "Timeliness 0.65",
+                        "type": "Timeliness",
+						"properties": 
+						{
+							"timeliness": 
+							{
+								"maximum":0.65,
+								"unit": "NONE"
+							}
+						}
+                    },
+                    {
+                        "id": "precision_08",
+                        "description": "Precision",
+                        "type": "Precision",
+                        "properties": 
+						{
+							"precision": 
+							{
+								"minimum":0.8,
+								"unit": "none"
+							}
+						}
+                    },
+                    {
+                        "id": "accuracy_09",
+                        "description": "Accuracy",
+                        "type": "Accuracy",
+                        "properties": 
+						{
+							"accuracy": 
+							{
+								"minimum":0.9,
+								"unit": "none"
+							}
+						}
+                    }
+                ],
+                "security": [],
+                "privacy": []
+            }
+		}
+	],
 	"ABSTRACT_PROPERTIES": {},
 	"COOKBOOK_APPENDIX": {},
 	"EXPOSED_API": {

@@ -1,0 +1,2 @@
+The concrete blueprints includes the ABSTRACT PROPERTIES (requirements goal model). The abstract blueprints don't include this. The abstract blueprint are ready for being stored in the blueprint repository.
+The concrete blueprints are still empty. We need to add the goal model once POLIMI finishes with it.
