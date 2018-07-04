@@ -210,6 +210,23 @@
 								"value": "VDC"
 							}
 						]
+					},
+					{
+						"name": "acl",
+						"properties": [
+							{
+								"name": "protocol",
+								"unit": "enum",
+								"value": "username/password"
+							},
+							{
+								"name": "credentials",
+								"unit": "list",
+								"value": [
+									"doctor_er_id"
+								]
+							}
+						]
 					}
 				],
 				"privacy": [
@@ -261,6 +278,23 @@
 								"name": "instrumentation",
 								"unit": "enum",
 								"value": "VDC"
+							}
+						]
+					},
+					{
+						"name": "acl",
+						"properties": [
+							{
+								"name": "protocol",
+								"unit": "enum",
+								"value": "username/password"
+							},
+							{
+								"name": "credentials",
+								"unit": "list",
+								"value": [
+									"doctor_er_id"
+								]
 							}
 						]
 					}
@@ -316,6 +350,23 @@
 								"value": "VDC"
 							}
 						]
+					},
+					{
+						"name": "acl",
+						"properties": [
+							{
+								"name": "protocol",
+								"unit": "enum",
+								"value": "username/password"
+							},
+							{
+								"name": "credentials",
+								"unit": "list",
+								"value": [
+									"doctor_er_id"
+								]
+							}
+						]
 					}
 				],
 				"privacy": [
@@ -367,6 +418,23 @@
 								"name": "instrumentation",
 								"unit": "enum",
 								"value": "VDC"
+							}
+						]
+					},
+					{
+						"name": "acl",
+						"properties": [
+							{
+								"name": "protocol",
+								"unit": "enum",
+								"value": "username/password"
+							},
+							{
+								"name": "credentials",
+								"unit": "list",
+								"value": [
+									"researcher_id"
+								]
 							}
 						]
 					}
