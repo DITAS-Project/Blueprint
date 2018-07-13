@@ -211,7 +211,7 @@
                                        },
                                        "value":{
                                           "description":"value of the property",
-                                          "type":"string"
+                                          "type":["string", "number", "array"]
                                        }
                                     }
                                  }
