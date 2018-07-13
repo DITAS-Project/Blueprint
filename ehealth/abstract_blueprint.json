@@ -168,8 +168,8 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_9599",
-            "description": "Availability 95-99",
+            "id": "availability_999999",
+            "description": "Availability 99.9999",
             "type": "Availability",
             "properties": {
               "availability": {
@@ -203,61 +203,59 @@
         ],
         "security": [
           {
-            "name": "transport encryption",
-            "properties": [
-              {
-                "name": "Protocol",
-                "unit": "enum",
-                "value": "TLS"
-              },
-              {
-                "name": "Algorithm",
-                "unit": "enum",
-                "value": "AES"
-              },
-              {
-                "name": "Keylength",
-                "unit": "number",
-                "value": "128"
-              }
-            ]
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
+            "type": "TransportEncryption",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": "128"
+				}
+            }
           },
           {
-            "name": "tracing",
-            "properties": [
-              {
-                "name": "level",
-                "unit": "enum",
-                "value": "datasource"
-              },
-              {
-                "name": "samplerate",
-                "unit": "percentage",
-                "value": "1"
-              },
-              {
-                "name": "instrumentation",
-                "unit": "enum",
-                "value": "VDC"
-              }
-            ]
+            "id": "tracing_1",
+			"description": "Tracing 1",
+			"type": "Tracing",
+            "properties": {
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": "1"
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
+            }
           },
           {
-            "name": "acl",
-            "properties": [
-              {
-                "name": "protocol",
-                "unit": "enum",
-                "value": "username/password"
-              },
-              {
-                "name": "credentials",
-                "unit": "list",
-                "value": [
-                  "doctor_er_id"
-                ]
-              }
-            ]
+            "id": "acl_userPW_doctor",
+			"description": "ACL username/password doctor_er_id",
+			"type": "ACL",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"doctor_er_id"
+					]
+				}
+            }
           }
         ],
         "privacy": []
@@ -268,8 +266,8 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_9599",
-            "description": "Availability 95-99",
+            "id": "availability_999999",
+            "description": "Availability 99.9999",
             "type": "Availability",
             "properties": {
               "availability": {
@@ -303,61 +301,59 @@
         ],
         "security": [
           {
-            "name": "transport encryption",
-            "properties": [
-              {
-                "name": "Protocol",
-                "unit": "enum",
-                "value": "TLS"
-              },
-              {
-                "name": "Algorithm",
-                "unit": "enum",
-                "value": "AES"
-              },
-              {
-                "name": "Keylength",
-                "unit": "number",
-                "value": "128"
-              }
-            ]
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
+            "type": "TransportEncryption",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": "128"
+				}
+            }
           },
           {
-            "name": "tracing",
-            "properties": [
-              {
-                "name": "level",
-                "unit": "enum",
-                "value": "datasource"
-              },
-              {
-                "name": "samplerate",
-                "unit": "percentage",
-                "value": "1"
-              },
-              {
-                "name": "instrumentation",
-                "unit": "enum",
-                "value": "VDC"
-              }
-            ]
+            "id": "tracing_1",
+			"description": "Tracing 1",
+			"type": "Tracing",
+            "properties": {
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": "1"
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
+            }
           },
           {
-            "name": "acl",
-            "properties": [
-              {
-                "name": "protocol",
-                "unit": "enum",
-                "value": "username/password"
-              },
-              {
-                "name": "credentials",
-                "unit": "list",
-                "value": [
-                  "doctor_er_id"
-                ]
-              }
-            ]
+            "id": "acl_userPW_doctor",
+			"description": "ACL username/password doctor_er_id",
+			"type": "ACL",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"doctor_er_id"
+					]
+				}
+            }
           }
         ],
         "privacy": []
@@ -368,8 +364,8 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_9599",
-            "description": "Availability 95-99",
+            "id": "availability_999999",
+            "description": "Availability 99.9999",
             "type": "Availability",
             "properties": {
               "availability": {
@@ -403,61 +399,59 @@
         ],
         "security": [
           {
-            "name": "transport encryption",
-            "properties": [
-              {
-                "name": "Protocol",
-                "unit": "enum",
-                "value": "TLS"
-              },
-              {
-                "name": "Algorithm",
-                "unit": "enum",
-                "value": "AES"
-              },
-              {
-                "name": "Keylength",
-                "unit": "number",
-                "value": "128"
-              }
-            ]
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
+            "type": "TransportEncryption",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": "128"
+				}
+            }
           },
           {
-            "name": "tracing",
-            "properties": [
-              {
-                "name": "level",
-                "unit": "enum",
-                "value": "datasource"
-              },
-              {
-                "name": "samplerate",
-                "unit": "percentage",
-                "value": "1"
-              },
-              {
-                "name": "instrumentation",
-                "unit": "enum",
-                "value": "VDC"
-              }
-            ]
+            "id": "tracing_1",
+			"description": "Tracing 1",
+			"type": "Tracing",
+            "properties": {
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": "1"
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
+            }
           },
           {
-            "name": "acl",
-            "properties": [
-              {
-                "name": "protocol",
-                "unit": "enum",
-                "value": "username/password"
-              },
-              {
-                "name": "credentials",
-                "unit": "list",
-                "value": [
-                  "doctor_er_id"
-                ]
-              }
-            ]
+            "id": "acl_userPW_doctor",
+			"description": "ACL username/password doctor_er_id",
+			"type": "ACL",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"doctor_er_id"
+					]
+				}
+            }
           }
         ],
         "privacy": []
@@ -490,8 +484,8 @@
             }
           },
           {
-            "id": "processCompleteness_90",
-            "description": "Process completeness 90",
+            "id": "processCompleteness_9",
+            "description": "Process completeness 9",
             "type": "Process completeness",
             "properties": {
               "completeness": {
@@ -533,84 +527,82 @@
         ],
         "security": [
           {
-            "name": "transport_encryption",
-            "properties": [
-              {
-                "name": "Protocol",
-                "unit": "enum",
-                "value": "TLS"
-              },
-              {
-                "name": "Algorithm",
-                "unit": "enum",
-                "value": "AES"
-              },
-              {
-                "name": "Keylength",
-                "unit": "number",
-                "value": "128"
-              }
-            ]
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
+            "type": "TransportEncryption",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": "128"
+				}
+            }
           },
           {
-            "name": "tracing",
-            "properties": [
-              {
-                "name": "level",
-                "unit": "enum",
-                "value": "datasource"
-              },
-              {
-                "name": "samplerate",
-                "unit": "percentage",
-                "value": "1"
-              },
-              {
-                "name": "instrumentation",
-                "unit": "enum",
-                "value": "VDC"
-              }
-            ]
+            "id": "tracing_1",
+			"description": "Tracing 1",
+			"type": "Tracing",
+            "properties": {
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": "1"
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
+            }
           },
           {
-            "name": "acl",
-            "properties": [
-              {
-                "name": "protocol",
-                "unit": "enum",
-                "value": "username/password"
-              },
-              {
-                "name": "credentials",
-                "unit": "list",
-                "value": [
-                  "researcher_id"
-                ]
-              }
-            ]
+            "id": "acl_userPW_researcher",
+			"description": "ACL username/password researcher_id",
+			"type": "ACL",
+            "properties": {
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"researcher_id"
+					]
+				}
+            }
           }
         ],
         "privacy": [
           {
-            "name ": "purpose_control",
-            "properties": [
-              {
-                "name": "available purpose",
-                "unit": "list",
-                "value": [
-                  "research",
-                  "medical research",
-                  "nutritional research"
-                ]
-              },
-              {
-                "name": "guarantor",
-                "unit": "list",
-                "value": [
-                  "d63d0e21fdc05f618d55ef306c54af82"
-                ]
-              }
-            ]
+            "id": "purposeControl_research",
+			"description": "PurposeControl research",
+			"type": "PurposeControl",
+            "properties": {
+                "availablePurpose": {
+					"unit": "list",
+					"value": [
+					  "research",
+					  "medical research",
+					  "nutritional research"
+					]
+				},
+				"guarantor": {
+					"unit": "list",
+					"value": [
+					  "d63d0e21fdc05f618d55ef306c54af82"
+					]
+				}
+            }
           }
         ]
       }
