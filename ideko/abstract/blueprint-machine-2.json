@@ -67,7 +67,7 @@
 				"description": "In-box streaming API served directly from the interoperability module on the smart box",
 				"location": "edge",
 				"class": "data stream",
-				"type": "rest,
+				"type": "rest",
 				"parameters": {
 					"url": "https://172.16.32.215",
 					"port": "8006"
