@@ -745,7 +745,7 @@
               "description": "Patient not found"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "patientBiographicalData"
           ]
         }
@@ -858,7 +858,7 @@
               "description": "Patient not found"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "bloodTestSource",
             "patientBiographicalData"
           ]
@@ -959,7 +959,7 @@
               "description": "Patient not found"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "bloodTestSource",
             "patientBiographicalData"
           ]
@@ -1042,7 +1042,7 @@
               "description": "Component never measured"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "bloodTestSource",
             "patientBiographicalData"
           ]
