@@ -36,7 +36,7 @@
 				}
 			},
 			{
-				"id": "InboxStreamingAPI",
+				"id": "InboxStreamingAPI"
 				"description": "In-box streaming API served directly from the interoperability module on the smart box",
 				"location": "edge",
 				"class": "data stream",
@@ -129,8 +129,8 @@
 					"returntype":"utf-8",
 					"apitype":"cloud",
 					"port":"8017",
-					"key":"Zda41rElPI",
-					"secret":"r67svwg7CLn8aupiRICN",
+					"key":"****",
+					"secret":"****",
 					"locationId":"",
 					"groupId":"",
 					"machineId":"",
@@ -188,8 +188,8 @@
 					"returntype":"utf-8",
 					"apitype":"cloud",
 					"port":"8017",
-					"key":"Zda41rElPI",
-					"secret":"r67svwg7CLn8aupiRICN",
+					"key":"****",
+					"secret":"****",
 					"locationId":"",
 					"groupId":"",
 					"machineId":"",
