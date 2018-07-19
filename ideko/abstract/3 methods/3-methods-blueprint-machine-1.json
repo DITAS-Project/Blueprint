@@ -54,8 +54,8 @@
 				"type": "rest",
 				"parameters": {
 					"readme": "The following key / secret are the credentials used in the Node-RED flow.",
-					"apy-key": "****",
-					"apy-secret": "****"
+					"api-key": "****",
+					"api-secret": "****"
 				}
 			}
 		],
