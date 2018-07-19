@@ -36,7 +36,7 @@
 				}
 			},
 			{
-				"id": "InboxStreamingAPI"
+				"id": "InboxStreamingAPI",
 				"description": "In-box streaming API served directly from the interoperability module on the smart box",
 				"location": "edge",
 				"class": "data stream",
