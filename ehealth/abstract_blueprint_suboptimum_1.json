@@ -67,19 +67,6 @@
           "spark_hadoop_fs_s3a_impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
           "s3_filename": "s3a://ditas.ehealth-sample/ditas-blood-tests.parquet"
         },
-        "location": "edge",
-        "resourceUsed": [
-          {
-            "type": "space",
-            "total": "40",
-            "unit": "GB"
-          },
-          {
-            "type": "memory",
-            "total": "3",
-            "unit": "GB"
-          }
-        ],
         "schema": {}
       },
       {
@@ -93,19 +80,6 @@
           "user": "BIO_USER",
           "password": "BIO_PASSWORD"
         },
-        "location": "edge",
-        "resourceUsed": [
-          {
-            "type": "space",
-            "total": "40",
-            "unit": "GB"
-          },
-          {
-            "type": "memory",
-            "total": "3",
-            "unit": "GB"
-          }
-        ],
         "schema": {
           "type": "object",
           "properties": {
@@ -161,84 +135,6 @@
         }
       }
     ],
-    "resourcesAvailable": [
-      {
-        "name": "rescource1",
-        "type": "sql",
-        "location": "edge",
-        "characteristics": [
-          {
-            "type": "space",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          },
-          {
-            "type": "memory",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          }
-        ]
-      },
-      {
-        "name": "rescource2",
-        "type": "sql",
-        "location": "edge",
-        "characteristics": [
-          {
-            "type": "space",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          },
-          {
-            "type": "memory",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          }
-        ]
-      },
-      {
-        "name": "rescource3",
-        "type": "sql",
-        "location": "cloud",
-        "characteristics": [
-          {
-            "type": "space",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          },
-          {
-            "type": "memory",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          }
-        ]
-      },
-      {
-        "name": "rescource4",
-        "type": "computation",
-        "location": "edge",
-        "characteristics": [
-          {
-            "type": "memory",
-            "total": "100",
-            "free": "50",
-            "unit": "GB"
-          },
-          {
-            "type": "CPU",
-            "total": "100",
-            "free": "50",
-            "unit": "percentage"
-          }
-        ]
-      }
-    ],
     "Flow": {
       "platform": "Spark",
       "parameters": {
@@ -272,13 +168,13 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_999999",
-            "description": "Availability 99.9999",
+            "id": "availability_999",
+            "description": "Availability 99.9",
             "type": "Availability",
             "properties": {
               "availability": {
                 "unit": "percentage",
-                "minimum": 99.9999
+                "minimum": 99.9
               }
             }
           },
@@ -307,58 +203,58 @@
         ],
         "security": [
           {
-            "id": "encryption_AES128",
-            "description": "Encryption AES 128",
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
             "type": "TransportEncryption",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "TLS"
-              },
-              "algorithm": {
-                "unit": "enum",
-                "value": "AES"
-              },
-              "keylength": {
-                "unit": "number",
-                "value": "128"
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": 128
+				}
             }
           },
           {
             "id": "tracing_1",
-            "description": "Tracing 1",
-            "type": "Tracing",
+			"description": "Tracing 1",
+			"type": "Tracing",
             "properties": {
-              "level": {
-                "unit": "enum",
-                "value": "datasource"
-              },
-              "samplerate": {
-                "unit": "percentage",
-                "value": "1"
-              },
-              "instrumentation": {
-                "unit": "enum",
-                "value": "VDC"
-              }
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": 1
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
             }
           },
           {
             "id": "acl_userPW_doctor",
-            "description": "ACL username/password doctor_er_id",
-            "type": "ACL",
+			"description": "ACL username/password doctor_er_id",
+			"type": "ACL",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "username/password"
-              },
-              "credentials": {
-                "unit": "list",
-                "value": [
-                  "doctor_er_id"
-                ]
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"doctor_er_id"
+					]
+				}
             }
           }
         ],
@@ -370,13 +266,13 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_999999",
-            "description": "Availability 99.9999",
+            "id": "availability_999",
+            "description": "Availability 99.9",
             "type": "Availability",
             "properties": {
               "availability": {
                 "unit": "percentage",
-                "minimum": 99.9999
+                "minimum": 99.9
               }
             }
           },
@@ -405,58 +301,58 @@
         ],
         "security": [
           {
-            "id": "encryption_AES128",
-            "description": "Encryption AES 128",
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
             "type": "TransportEncryption",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "TLS"
-              },
-              "algorithm": {
-                "unit": "enum",
-                "value": "AES"
-              },
-              "keylength": {
-                "unit": "number",
-                "value": "128"
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": 128
+				}
             }
           },
           {
             "id": "tracing_1",
-            "description": "Tracing 1",
-            "type": "Tracing",
+			"description": "Tracing 1",
+			"type": "Tracing",
             "properties": {
-              "level": {
-                "unit": "enum",
-                "value": "datasource"
-              },
-              "samplerate": {
-                "unit": "percentage",
-                "value": "1"
-              },
-              "instrumentation": {
-                "unit": "enum",
-                "value": "VDC"
-              }
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": 1
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
             }
           },
           {
             "id": "acl_userPW_doctor",
-            "description": "ACL username/password doctor_er_id",
-            "type": "ACL",
+			"description": "ACL username/password doctor_er_id",
+			"type": "ACL",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "username/password"
-              },
-              "credentials": {
-                "unit": "list",
-                "value": [
-                  "doctor_er_id"
-                ]
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"doctor_er_id"
+					]
+				}
             }
           }
         ],
@@ -468,13 +364,13 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_999999",
-            "description": "Availability 99.9999",
+            "id": "availability_999",
+            "description": "Availability 99.9",
             "type": "Availability",
             "properties": {
               "availability": {
                 "unit": "percentage",
-                "minimum": 99.9999
+                "minimum": 99.9
               }
             }
           },
@@ -503,58 +399,58 @@
         ],
         "security": [
           {
-            "id": "encryption_AES128",
-            "description": "Encryption AES 128",
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
             "type": "TransportEncryption",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "TLS"
-              },
-              "algorithm": {
-                "unit": "enum",
-                "value": "AES"
-              },
-              "keylength": {
-                "unit": "number",
-                "value": "128"
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": 128
+				}
             }
           },
           {
             "id": "tracing_1",
-            "description": "Tracing 1",
-            "type": "Tracing",
+			"description": "Tracing 1",
+			"type": "Tracing",
             "properties": {
-              "level": {
-                "unit": "enum",
-                "value": "datasource"
-              },
-              "samplerate": {
-                "unit": "percentage",
-                "value": "1"
-              },
-              "instrumentation": {
-                "unit": "enum",
-                "value": "VDC"
-              }
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": 1
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
             }
           },
           {
             "id": "acl_userPW_doctor",
-            "description": "ACL username/password doctor_er_id",
-            "type": "ACL",
+			"description": "ACL username/password doctor_er_id",
+			"type": "ACL",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "username/password"
-              },
-              "credentials": {
-                "unit": "list",
-                "value": [
-                  "doctor_er_id"
-                ]
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"doctor_er_id"
+					]
+				}
             }
           }
         ],
@@ -566,23 +462,23 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "volume_10000",
-            "description": "volume 10000",
+            "id": "volume_9000",
+            "description": "volume 9000",
             "type": "Volume",
             "properties": {
               "volume": {
-                "value": "10000",
+                "value": 9000,
                 "unit": "tuple"
               }
             }
           },
           {
-            "id": "accuracy_09",
+            "id": "accuracy_08",
             "description": "Accuracy",
             "type": "Accuracy",
             "properties": {
               "accuracy": {
-                "minimum": 0.9,
+                "minimum": 0.8,
                 "unit": "none"
               }
             }
@@ -605,11 +501,11 @@
             "properties": {
               "ramGain": {
                 "unit": "percentage",
-                "value": "150"
+                "value": 150
               },
               "ramLimit": {
                 "unit": "percentage",
-                "value": "99"
+                "value": 99
               }
             }
           },
@@ -620,313 +516,99 @@
             "properties": {
               "spaceGain": {
                 "unit": "percentage",
-                "value": "150"
+                "value": 150
               },
               "spaceLimit": {
                 "unit": "percentage",
-                "value": "99"
+                "value": 99
               }
             }
           }
         ],
         "security": [
           {
-            "id": "encryption_AES128",
-            "description": "Encryption AES 128",
+			"id": "encryption_AES128",
+			"description": "Encryption AES 128",
             "type": "TransportEncryption",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "TLS"
-              },
-              "algorithm": {
-                "unit": "enum",
-                "value": "AES"
-              },
-              "keylength": {
-                "unit": "number",
-                "value": "128"
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "TLS"
+				},
+				"algorithm": {
+					"unit": "enum",
+					"value": "AES"
+				},
+                "keylength": {
+					"unit": "number",
+					"value": 128
+				}
             }
           },
           {
             "id": "tracing_1",
-            "description": "Tracing 1",
-            "type": "Tracing",
+			"description": "Tracing 1",
+			"type": "Tracing",
             "properties": {
-              "level": {
-                "unit": "enum",
-                "value": "datasource"
-              },
-              "samplerate": {
-                "unit": "percentage",
-                "value": "1"
-              },
-              "instrumentation": {
-                "unit": "enum",
-                "value": "VDC"
-              }
+                "level": {
+					"unit": "enum",
+					"value": "datasource"
+				},
+				"samplerate": {
+					"unit": "percentage",
+					"value": 1
+				},
+				"instrumentation": {
+					"unit": "enum",
+					"value": "VDC"
+				}
             }
           },
           {
             "id": "acl_userPW_researcher",
-            "description": "ACL username/password researcher_id",
-            "type": "ACL",
+			"description": "ACL username/password researcher_id",
+			"type": "ACL",
             "properties": {
-              "protocol": {
-                "unit": "enum",
-                "value": "username/password"
-              },
-              "credentials": {
-                "unit": "list",
-                "value": [
-                  "researcher_id"
-                ]
-              }
+                "protocol": {
+					"unit": "enum",
+					"value": "username/password"
+				},
+				"credentials": {
+					"unit": "list",
+					"value": [
+						"researcher_id"
+					]
+				}
             }
           }
         ],
         "privacy": [
           {
             "id": "purposeControl_research",
-            "description": "PurposeControl research",
-            "type": "PurposeControl",
+			"description": "PurposeControl research",
+			"type": "PurposeControl",
             "properties": {
-              "availablePurpose": {
-                "unit": "list",
-                "value": [
-                  "research",
-                  "medical research",
-                  "nutritional research"
-                ]
-              },
-              "guarantor": {
-                "unit": "list",
-                "value": [
-                  "d63d0e21fdc05f618d55ef306c54af82"
-                ]
-              }
+                "availablePurpose": {
+					"unit": "list",
+					"value": [
+					  "research",
+					  "medical research",
+					  "nutritional research"
+					]
+				},
+				"guarantor": {
+					"unit": "list",
+					"value": [
+					  "d63d0e21fdc05f618d55ef306c54af82"
+					]
+				}
             }
           }
         ]
       }
     }
   ],
-  "ABSTRACT_PROPERTIES": [
-    {
-      "method_id": "getPatientBiographicalData",
-      "goalTrees": {
-        "dataUtility": {
-          "type": "AND",
-          "children": [
-            {
-              "type": "AND",
-              "leaves": [
-                {
-                  "id": "serviceAvailable",
-                  "description": "Service available",
-                  "weight": 1,
-                  "attributes": [
-                    "availability_99"
-                  ]
-                },
-                {
-                  "id": "fastDataProcess",
-                  "description": "Fast data process",
-                  "weight": 1,
-                  "attributes": [
-                    "responseTime_1"
-                  ]
-                }
-              ]
-            }
-          ],
-          "leaves": [
-            {
-              "id": "timeliness",
-              "description": "Timeliness",
-              "weight": 1,
-              "attributes": [
-                "timeliness_06"
-              ]
-            }
-          ]
-        },
-        "security": {
-          "type": "AND",
-          "leaves": [
-            {
-              "id": "storageEncryption",
-              "description": "Storage encryption",
-              "weight": 1,
-              "attributes": [
-                "encryptionAES_128"
-              ]
-            },
-            {
-              "id": "accessControl",
-              "description": "Access control",
-              "weight": 1,
-              "attributes": [
-                "aclRoleBasedReadOnly"
-              ]
-            },
-            {
-              "id": "tracing",
-              "description": "Tracing and monitoring",
-              "weight": 1,
-              "attributes": [
-                "tracing_1"
-              ]
-            }
-          ]
-        },
-        "privacy": {}
-      }
-    },
-    {
-      "method_id": "getLastValuesForBloodTest",
-      "goalTrees": {
-        "dataUtility": {
-          "type": "AND",
-          "children": [
-            {
-              "type": "AND",
-              "leaves": [
-                {
-                  "id": "serviceAvailable",
-                  "description": "Service available",
-                  "weight": 1,
-                  "attributes": [
-                    "availability_99"
-                  ]
-                },
-                {
-                  "id": "fastDataProcess",
-                  "description": "Fast data process",
-                  "weight": 1,
-                  "attributes": [
-                    "responseTime_1"
-                  ]
-                }
-              ]
-            }
-          ],
-          "leaves": [
-            {
-              "id": "timeliness",
-              "description": "Timeliness",
-              "weight": 1,
-              "attributes": [
-                "timeliness_06"
-              ]
-            }
-          ]
-        },
-        "security": {
-          "type": "AND",
-          "leaves": [
-            {
-              "id": "storageEncryption",
-              "description": "Storage encryption",
-              "weight": 1,
-              "attributes": [
-                "encryptionAES_128"
-              ]
-            },
-            {
-              "id": "accessControl",
-              "description": "Access control",
-              "weight": 1,
-              "attributes": [
-                "aclRoleBasedReadOnly"
-              ]
-            },
-            {
-              "id": "tracing",
-              "description": "Tracing and monitoring",
-              "weight": 1,
-              "attributes": [
-                "tracing_1"
-              ]
-            }
-          ]
-        },
-        "privacy": {}
-      }
-    },
-    {
-      "method_id": "getAllValuesForBloodTestComponent",
-      "goalTrees": {
-        "dataUtility": {
-          "type": "AND",
-          "children": [
-            {
-              "type": "AND",
-              "leaves": [
-                {
-                  "id": "serviceAvailable",
-                  "description": "Service available",
-                  "weight": 1,
-                  "attributes": [
-                    "availability_99"
-                  ]
-                },
-                {
-                  "id": "fastDataProcess",
-                  "description": "Fast data process",
-                  "weight": 1,
-                  "attributes": [
-                    "responseTime_1"
-                  ]
-                }
-              ]
-            }
-          ],
-          "leaves": [
-            {
-              "id": "timeliness",
-              "description": "Timeliness",
-              "weight": 1,
-              "attributes": [
-                "timeliness_06"
-              ]
-            }
-          ]
-        },
-        "security": {
-          "type": "AND",
-          "leaves": [
-            {
-              "id": "storageEncryption",
-              "description": "Storage encryption",
-              "weight": 1,
-              "attributes": [
-                "encryptionAES_128"
-              ]
-            },
-            {
-              "id": "accessControl",
-              "description": "Access control",
-              "weight": 1,
-              "attributes": [
-                "aclRoleBasedReadOnly"
-              ]
-            },
-            {
-              "id": "tracing",
-              "description": "Tracing and monitoring",
-              "weight": 1,
-              "attributes": [
-                "tracing_1"
-              ]
-            }
-          ]
-        },
-        "privacy": {}
-      }
-    }
-  ],
+  "ABSTRACT_PROPERTIES": [],
   "COOKBOOK_APPENDIX": {},
   "EXPOSED_API": {
     "openapi": "3.0.1",
@@ -1063,7 +745,7 @@
               "description": "Patient not found"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "patientBiographicalData"
           ]
         }
@@ -1176,7 +858,7 @@
               "description": "Patient not found"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "bloodTestSource",
             "patientBiographicalData"
           ]
@@ -1277,7 +959,7 @@
               "description": "Patient not found"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "bloodTestSource",
             "patientBiographicalData"
           ]
@@ -1360,7 +1042,7 @@
               "description": "Component never measured"
             }
           },
-          "x-data_sources": [
+          "x-data-sources": [
             "bloodTestSource",
             "patientBiographicalData"
           ]

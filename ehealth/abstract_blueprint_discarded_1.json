@@ -168,13 +168,13 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_999999",
-            "description": "Availability 99.9999",
+            "id": "availability_90",
+            "description": "Availability 90",
             "type": "Availability",
             "properties": {
               "availability": {
                 "unit": "percentage",
-                "minimum": 99.9999
+                "minimum": 90
               }
             }
           },
@@ -217,7 +217,7 @@
 				},
                 "keylength": {
 					"unit": "number",
-					"value": "128"
+					"value": 128
 				}
             }
           },
@@ -232,7 +232,7 @@
 				},
 				"samplerate": {
 					"unit": "percentage",
-					"value": "1"
+					"value": 1
 				},
 				"instrumentation": {
 					"unit": "enum",
@@ -266,13 +266,13 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_999999",
-            "description": "Availability 99.9999",
+            "id": "availability_90",
+            "description": "Availability 90",
             "type": "Availability",
             "properties": {
               "availability": {
                 "unit": "percentage",
-                "minimum": 99.9999
+                "minimum": 90
               }
             }
           },
@@ -315,7 +315,7 @@
 				},
                 "keylength": {
 					"unit": "number",
-					"value": "128"
+					"value": 128
 				}
             }
           },
@@ -330,7 +330,7 @@
 				},
 				"samplerate": {
 					"unit": "percentage",
-					"value": "1"
+					"value": 1
 				},
 				"instrumentation": {
 					"unit": "enum",
@@ -364,13 +364,13 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "availability_999999",
-            "description": "Availability 99.9999",
+            "id": "availability_90",
+            "description": "Availability 90",
             "type": "Availability",
             "properties": {
               "availability": {
                 "unit": "percentage",
-                "minimum": 99.9999
+                "minimum": 90
               }
             }
           },
@@ -413,7 +413,7 @@
 				},
                 "keylength": {
 					"unit": "number",
-					"value": "128"
+					"value": 128
 				}
             }
           },
@@ -428,7 +428,7 @@
 				},
 				"samplerate": {
 					"unit": "percentage",
-					"value": "1"
+					"value": 1
 				},
 				"instrumentation": {
 					"unit": "enum",
@@ -462,34 +462,34 @@
       "attributes": {
         "dataUtility": [
           {
-            "id": "volume_10000",
-            "description": "volume 10000",
+            "id": "volume_9500",
+            "description": "volume 9500",
             "type": "Volume",
             "properties": {
               "volume": {
-                "value": "10000",
+                "value": 9500,
                 "unit": "tuple"
               }
             }
           },
           {
-            "id": "accuracy_09",
+            "id": "accuracy_07",
             "description": "Accuracy",
             "type": "Accuracy",
             "properties": {
               "accuracy": {
-                "minimum": 0.9,
+                "minimum": 0.7,
                 "unit": "none"
               }
             }
           },
           {
-            "id": "processCompleteness_9",
-            "description": "Process completeness 9",
+            "id": "processCompleteness_8",
+            "description": "Process completeness 8",
             "type": "Process completeness",
             "properties": {
               "completeness": {
-                "minimum": 9,
+                "minimum": 8,
                 "unit": "percentage"
               }
             }
@@ -501,11 +501,11 @@
             "properties": {
               "ramGain": {
                 "unit": "percentage",
-                "value": "150"
+                "value": 150
               },
               "ramLimit": {
                 "unit": "percentage",
-                "value": "99"
+                "value": 99
               }
             }
           },
@@ -516,11 +516,11 @@
             "properties": {
               "spaceGain": {
                 "unit": "percentage",
-                "value": "150"
+                "value": 150
               },
               "spaceLimit": {
                 "unit": "percentage",
-                "value": "99"
+                "value": 99
               }
             }
           }
@@ -541,7 +541,7 @@
 				},
                 "keylength": {
 					"unit": "number",
-					"value": "128"
+					"value": 128
 				}
             }
           },
@@ -556,7 +556,7 @@
 				},
 				"samplerate": {
 					"unit": "percentage",
-					"value": "1"
+					"value": 1
 				},
 				"instrumentation": {
 					"unit": "enum",
