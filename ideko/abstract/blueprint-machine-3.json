@@ -651,7 +651,7 @@
 						{
 							"throughput": 
 							{
-								"maximum":2,
+								"value":2,
 								"unit": "MB/s"
 							}
 						}
@@ -805,7 +805,7 @@
 						{
 							"throughput": 
 							{
-								"maximum":1.6,
+								"value":1.6,
 								"unit": "MB/s"
 							}
 						}

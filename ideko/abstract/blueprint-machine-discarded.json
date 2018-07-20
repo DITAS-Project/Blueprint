@@ -1,8 +1,8 @@
 {
 	"INTERNAL_STRUCTURE": {
 		"Overview": {
-			"name": "DITAS Machine 2 - Soraluce FS",
-			"description": "VDC blueprint for the 'DITAS Machines 2 - Soraluce FS' at Ideko",
+			"name": "DITAS Machine 3 - Soraluce FS",
+			"description": "VDC blueprint for the 'DITAS Machines 3 - Soraluce FS' at Ideko",
 			"tags": [
 				{
 					"method_id": "GetHistoricalData",
@@ -25,7 +25,7 @@
 				"class": "time-series database",
 				"type": "InfluxDB",
 				"parameters": {
-					"ip": "172.16.32.215",
+					"ip": "172.16.33.202",
 					"port": "****",
 					"user": "****",
 					"password": "****",
@@ -42,7 +42,7 @@
 				"class": "data stream",
 				"type": "rest",
 				"parameters": {
-					"url": "https://172.16.32.215",
+					"url": "https://172.16.33.202",
 					"port": "****"
 				}
 			},
@@ -111,11 +111,11 @@
 					"id":"ebc731b5.eb8a98",
 					"type":"influxdb",
 					"z":"",
-					"hostname":"172.16.32.215",
+					"hostname":"172.16.33.202",
 					"port":"8086",
 					"protocol":"http",
 					"database":"defaultdb",
-					"name":"InfluxDB (Smart Box 15 - DITAS Machine 2)",
+					"name":"InfluxDB (Smart Box 16 - DITAS Machine 4)",
 					"usetls":false,
 					"tls":""
 				},
@@ -592,7 +592,7 @@
 					]
 				}
 			]
-		},		
+		},
 		"Testing_Output_Data": [
 			{
 				"method_id": "GetHistoricalData",
@@ -657,14 +657,14 @@
 						}
                     },
                     {
-                        "id": "precision_08",
-                        "description": "Precision 0.8",
+                        "id": "precision_07",
+                        "description": "Precision 0.7",
                         "type": "Precision",
                         "properties": 
 						{
 							"precision": 
 							{
-								"minimum":0.8,
+								"minimum":0.7,
 								"unit": "none"
 							}
 						}
@@ -708,14 +708,14 @@
 						}						
                     },
                     {
-                        "id": "processCompleteness_80",
-                        "description": "Process completeness 80",
+                        "id": "processCompleteness_70",
+                        "description": "Process completeness 70",
                         "type": "Process completeness",
                         "properties": 
 						{
 							"completeness": 
 							{
-								"minimum":80,
+								"minimum":70,
 								"unit": "percentage"
 							}
 						}
@@ -798,14 +798,14 @@
 						}
                     },
                     {
-                        "id": "throughput_16",
-                        "description": "Throughput 1.6",
+                        "id": "throughput_12",
+                        "description": "Throughput 1.2",
                         "type": "Throughput",
                         "properties": 
 						{
 							"throughput": 
 							{
-								"value":1.6,
+								"value":1.2,
 								"unit": "MB/s"
 							}
 						}
@@ -844,7 +844,7 @@
 	],
 	"ABSTRACT_PROPERTIES": {},
 	"COOKBOOK_APPENDIX": {},
-	"EXPOSED_API": {
+    "EXPOSED_API": {
 		"openapi":"3.0.0",
 		"info":{
 			"title":"IDEKO VDC",
@@ -1139,3 +1139,4 @@
 		}
 	}
 }
+

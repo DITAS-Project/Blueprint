@@ -832,238 +832,304 @@
 	"DATA_MANAGEMENT":
     [
 		{
-			"method_id":"GetHistoricalData",
-			"attributes":
-            {
-                "dataUtility": 
-                [
-                    {
-                        "id": "availability_9099",
-                        "description":"Availability 90-99",
-                        "type":"Availability",
-						"properties": 
-						{
-							"availability": 
-							{
-								"unit": "percentage",
-								"minimum":90,
-								"maximum":99
-							}				
-						}						
-                    },
-                    {
-                        "id": "processCompleteness_80",
-                        "description": "Process completeness 80",
-                        "type": "Process completeness",
-                        "properties": 
-						{
-							"completeness": 
-							{
-								"minimum":80,
-								"unit": "percentage"
-							}
+			"method_id": "GetHistoricalData",
+			"attributes": {
+				"dataUtility": [{
+					"id": "availability_90",
+					"description": "Availability 90",
+					"type": "Availability",
+					"properties": {
+						"availability": {
+							"unit": "percentage",
+							"minimum": 90
 						}
-                    },
-                    {
-                        "id": "throughput_2",
-                        "description": "Throughput 2",
-                        "type": "Throughput",
-                        "properties": 
-						{
-							"throughput": 
-							{
-								"maximum":2,
-								"unit": "MB/s"
-							}
+					}
+				}, {
+					"id": "processCompleteness_80",
+					"description": "Process completeness 80",
+					"type": "Process completeness",
+					"properties": {
+						"completeness": {
+							"minimum": 80,
+							"unit": "percentage"
 						}
-                    },
-                    {
-                        "id": "precision_08",
-                        "description": "Precision 0.8",
-                        "type": "Precision",
-                        "properties": 
-						{
-							"precision": 
-							{
-								"minimum":0.8,
-								"unit": "none"
-							}
+					}
+				}, {
+					"id": "throughput_18",
+					"description": "Throughput 1.8",
+					"type": "Throughput",
+					"properties": {
+						"throughput": {
+							"minimum": 1.8,
+							"unit": "MB/s"
 						}
-                    },
-                    {
-                        "id": "accuracy_09",
-                        "description": "Accuracy 0.9",
-                        "type": "Accuracy",
-                        "properties": 
-						{
-							"accuracy": 
-							{
-								"minimum":0.9,
-								"unit": "none"
-							}
+					}
+				}, {
+					"id": "precision_08",
+					"description": "Precision 0.8",
+					"type": "Precision",
+					"properties": {
+						"precision": {
+							"minimum": 0.8,
+							"unit": "none"
 						}
-                    }
-                ],
-                "security": [],
-                "privacy": []
-            }
+					}
+				}, {
+					"id": "accuracy_09",
+					"description": "Accuracy 0.9",
+					"type": "Accuracy",
+					"properties": {
+						"accuracy": {
+							"minimum": 0.9,
+							"unit": "none"
+						}
+					}
+				}],
+				"security": [],
+				"privacy": []
+			}
 		},
 		{
-			"method_id":"GetStreamingData",
-			"attributes":
-            {
-                "dataUtility": 
-                [
-                    {
-                        "id": "availability_9099",
-                        "description":"Availability 90-99",
-                        "type":"Availability",
-						"properties": 
-						{
-							"availability": 
-							{
-								"unit": "percentage",
-								"minimum":90,
-								"maximum":99
-							}				
-						}						
-                    },
-                    {
-                        "id": "processCompleteness_80",
-                        "description": "Process completeness 80",
-                        "type": "Process completeness",
-                        "properties": 
-						{
-							"completeness": 
-							{
-								"minimum":80,
-								"unit": "percentage"
-							}
+			"method_id": "GetStreamingData",
+			"attributes": {
+				"dataUtility": [{
+					"id": "availability_90",
+					"description": "Availability 90",
+					"type": "Availability",
+					"properties": {
+						"availability": {
+							"unit": "percentage",
+							"minimum": 90
 						}
-                    },
-                    {
-                        "id": "timeliness_065",
-                        "description": "Timeliness 0.65",
-                        "type": "Timeliness",
-						"properties": 
-						{
-							"timeliness": 
-							{
-								"maximum":0.65,
-								"unit": "NONE"
-							}
+					}
+				}, {
+					"id": "processCompleteness_80",
+					"description": "Process completeness 80",
+					"type": "Process completeness",
+					"properties": {
+						"completeness": {
+							"minimum": 80,
+							"unit": "percentage"
 						}
-                    },
-                    {
-                        "id": "precision_08",
-                        "description": "Precision 0.8",
-                        "type": "Precision",
-                        "properties": 
-						{
-							"precision": 
-							{
-								"minimum":0.8,
-								"unit": "none"
-							}
+					}
+				}, {
+					"id": "timeliness_065",
+					"description": "Timeliness 0.65",
+					"type": "Timeliness",
+					"properties": {
+						"timeliness": {
+							"maximum": 0.65,
+							"unit": "NONE"
 						}
-                    },
-                    {
-                        "id": "accuracy_09",
-                        "description": "Accuracy 0.9",
-                        "type": "Accuracy",
-                        "properties": 
-						{
-							"accuracy": 
-							{
-								"minimum":0.9,
-								"unit": "none"
-							}
+					}
+				}, {
+					"id": "precision_08",
+					"description": "Precision 0.8",
+					"type": "Precision",
+					"properties": {
+						"precision": {
+							"minimum": 0.8,
+							"unit": "none"
 						}
-                    }
-                ],
-                "security": [],
-                "privacy": []
-            }
+					}
+				}, {
+					"id": "accuracy_09",
+					"description": "Accuracy 0.9",
+					"type": "Accuracy",
+					"properties": {
+						"accuracy": {
+							"minimum": 0.9,
+							"unit": "none"
+						}
+					}
+				}],
+				"security": [],
+				"privacy": []
+			}
 		},
 		{
-			"method_id":"GetIndicatorsData",
-			"attributes":
-            {
-                "dataUtility": 
-                [
-                    {
-                        "id": "availability_8099",
-                        "description":"Availability 80-99",
-                        "type":"Availability",
-						"properties": 
-						{
-							"availability": 
-							{
-								"unit": "percentage",
-								"minimum":80,
-								"maximum":99
-							}				
-						}						
-                    },
-                    {
-                        "id": "processCompleteness_80",
-                        "description": "Process completeness 80",
-                        "type": "Process completeness",
-                        "properties": 
-						{
-							"completeness": 
-							{
-								"minimum":80,
-								"unit": "percentage"
-							}
+			"method_id": "GetIndicatorsData",
+			"attributes": {
+				"dataUtility": [{
+					"id": "availability_80",
+					"description": "Availability 80",
+					"type": "Availability",
+					"properties": {
+						"availability": {
+							"unit": "percentage",
+							"minimum": 80
 						}
-                    },
-                    {
-                        "id": "throughput_16",
-                        "description": "Throughput 1.6",
-                        "type": "Throughput",
-                        "properties": 
-						{
-							"throughput": 
-							{
-								"maximum":1.6,
-								"unit": "MB/s"
-							}
+					}
+				}, {
+					"id": "processCompleteness_80",
+					"description": "Process completeness 80",
+					"type": "Process completeness",
+					"properties": {
+						"completeness": {
+							"minimum": 80,
+							"unit": "percentage"
 						}
-                    },
-                    {
-                        "id": "precision_08",
-                        "description": "Precision 0.8",
-                        "type": "Precision",
-                        "properties": 
-						{
-							"precision": 
-							{
-								"minimum":0.8,
-								"unit": "none"
-							}
+					}
+				}, {
+					"id": "throughput_14",
+					"description": "Throughput 1.4",
+					"type": "Throughput",
+					"properties": {
+						"throughput": {
+							"minimum": 1.4,
+							"unit": "MB/s"
 						}
-                    },
-                    {
-                        "id": "accuracy_09",
-                        "description": "Accuracy 0.9",
-                        "type": "Accuracy",
-                        "properties": 
-						{
-							"accuracy": 
-							{
-								"minimum":0.9,
-								"unit": "none"
-							}
+					}
+				}, {
+					"id": "precision_08",
+					"description": "Precision 0.8",
+					"type": "Precision",
+					"properties": {
+						"precision": {
+							"minimum": 0.8,
+							"unit": "none"
 						}
-                    }
-                ],
-                "security": [],
-                "privacy": []
-            }
+					}
+				}, {
+					"id": "accuracy_09",
+					"description": "Accuracy 0.9",
+					"type": "Accuracy",
+					"properties": {
+						"accuracy": {
+							"minimum": 0.9,
+							"unit": "none"
+						}
+					}
+				}],
+				"security": [],
+				"privacy": []
+			}
 		}
 	],
-	"ABSTRACT_PROPERTIES": {},
+	"ABSTRACT_PROPERTIES": [{
+		"method_id": "GetHistoricalData",
+		"goalTrees": {
+			"dataUtility": {
+				"type": "AND",
+				"children": [{
+					"type": "AND",
+					"leaves": [{
+						"id": "serviceAvailable",
+						"description": "Service available",
+						"weight": 1,
+						"attributes": ["availability_90"]
+					}, {
+						"id": "fastDataStreaming",
+						"description": "Fast data streaming",
+						"weight": 1,
+						"attributes": ["throughput_18"]
+					}]
+				}, {
+					"type": "AND",
+					"leaves": [{
+						"id": "accuracy",
+						"description": "Accuracy",
+						"weight": 1,
+						"attributes": ["accuracy_09"]
+					}, {
+						"id": "completeness",
+						"description": "Completeness",
+						"weight": 1,
+						"attributes": ["processCompleteness_80"]
+					}, {
+						"id": "consistency",
+						"description": "consistency",
+						"weight": 1,
+						"attributes": ["precision_08"]
+					}]
+				}]
+			},
+			"security": {},
+			"privacy": {}
+		}
+	},
+	{
+		"method_id": "GetStreamingData",
+		"goalTrees": {
+			"dataUtility": {
+				"type": "AND",
+				"children": [{
+					"type": "AND",
+					"leaves": [{
+						"id": "timeliness",
+						"description": "Timeliness",
+						"weight": 1,
+						"attributes": ["timeliness_065"]
+					}, {
+						"id": "accuracy",
+						"description": "Accuracy",
+						"weight": 1,
+						"attributes": ["accuracy_09"]
+					}, {
+						"id": "completeness",
+						"description": "Completeness",
+						"weight": 1,
+						"attributes": ["processCompleteness_80"]
+					}, {
+						"id": "consistency",
+						"description": "consistency",
+						"weight": 1,
+						"attributes": ["precision_08"]
+					}]
+				}],
+				"leaves": [{
+					"id": "serviceAvailable",
+					"description": "Service available",
+					"weight": 1,
+					"attributes": ["availability_90"]
+				}]
+			},
+			"security": {},
+			"privacy": {}
+		}
+	},
+	{
+		"method_id": "GetIndicatorsData",
+		"goalTrees": {
+			"dataUtility": {
+				"type": "AND",
+				"children": [{
+					"type": "AND",
+					"leaves": [{
+						"id": "serviceAvailable",
+						"description": "Service available",
+						"weight": 1,
+						"attributes": ["availability_80"]
+					}, {
+						"id": "fastDataStreaming",
+						"description": "Fast data streaming",
+						"weight": 1,
+						"attributes": ["throughput_14"]
+					}]
+				}, {
+					"type": "AND",
+					"leaves": [{
+						"id": "accuracy",
+						"description": "Accuracy",
+						"weight": 1,
+						"attributes": ["accuracy_09"]
+					}, {
+						"id": "completeness",
+						"description": "Completeness",
+						"weight": 1,
+						"attributes": ["processCompleteness_80"]
+					}, {
+						"id": "consistency",
+						"description": "consistency",
+						"weight": 1,
+						"attributes": ["precision_08"]
+					}]
+				}]
+			},
+			"security": {},
+			"privacy": {}
+		}
+	}],
 	"COOKBOOK_APPENDIX": {},
 	"EXPOSED_API": {
 		"openapi":"3.0.0",
