@@ -321,14 +321,6 @@
 					"tz":""
 				},
 				{
-					"id":"12c3fc1d.6313a4",
-					"type":"CassandraDatabase",
-					"z":"",
-					"hosts":"",
-					"port":"9042",
-					"keyspace":"ditas"
-				},
-				{
 					"id":"ebc731b5.eb8a98",
 					"type":"influxdb",
 					"z":"",
