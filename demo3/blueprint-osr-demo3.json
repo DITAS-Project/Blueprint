@@ -293,7 +293,7 @@
 								"unit": "enum",
 								"value": "AES"
 							},
-							"keylength": {
+							"keyLength": {
 								"unit": "number",
 								"value": "128"
 							}
@@ -421,7 +421,7 @@
 								"unit": "enum",
 								"value": "AES"
 							},
-							"keylength": {
+							"keyLength": {
 								"unit": "number",
 								"value": 128
 							}
@@ -478,7 +478,7 @@
 									"nutritional research"
 								]
 							},
-							"guarantor": {
+							"allowedGuarantor": {
 								"unit": "list",
 								"value": [
 									"d63d0e21fdc05f618d55ef306c54af82"
