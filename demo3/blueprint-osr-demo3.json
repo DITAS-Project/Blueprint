@@ -308,7 +308,7 @@
 								"unit": "enum",
 								"value": "datasource"
 							},
-							"samplerate": {
+							"sampleRate": {
 								"unit": "percentage",
 								"value": "1"
 							},
@@ -436,7 +436,7 @@
 								"unit": "enum",
 								"value": "datasource"
 							},
-							"samplerate": {
+							"sampleRate": {
 								"unit": "percentage",
 								"value": 1
 							},
