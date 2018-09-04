@@ -246,13 +246,13 @@
 			"attributes": {
 				"dataUtility": [
 					{
-						"id": "availability_999999",
-						"description": "Availability 99.9999",
+						"id": "availability_99",
+						"description": "Availability 99.0",
 						"type": "Availability",
 						"properties": {
 							"availability": {
 								"unit": "percentage",
-								"minimum": 99.9999
+								"minimum": 99.0
 							}
 						}
 					},

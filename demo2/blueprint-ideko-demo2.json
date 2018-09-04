@@ -1,7 +1,7 @@
 {
 	"INTERNAL_STRUCTURE": {
 		"Overview": {
-			"name": "DITAS Machine 3 - Soraluce FS",
+			"name": "DITAS_Soraluce_FS",
 			"description": "VDC blueprint for the 'DITAS Machines 3 - Soraluce FS' at Ideko",
 			"tags": [
 				{
@@ -930,7 +930,7 @@
                     {
                         "name": "master",
                         "type": "vm",
-                        "cpus": "2000",
+                        "cpus": "4000",
                         "ram": "4096",
                         "disk": "10000000",
                         "generate_ssh_keys": false,
