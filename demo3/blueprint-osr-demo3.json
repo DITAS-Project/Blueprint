@@ -12,7 +12,8 @@
 						"hospital",
 						"blood",
 						"test",
-						"component"
+						"component",
+						"GDPR-compliance"
 					]
 				},
 				{
@@ -473,9 +474,11 @@
 							"availablePurpose": {
 								"unit": "list",
 								"value": [
-									"research",
-									"medical research",
-									"nutritional research"
+									"MedicalTreatment"
+									"Research",
+									"MedicalResearch",
+									"NutritionalResearch",
+									"NutritionConsultation"
 								]
 							},
 							"allowedGuarantor": {
@@ -647,7 +650,12 @@
 					]
 				},
 				"privacy": {
-					
+					"id": "purposeControl",
+					"description": "Purpose control",
+					"weight": 1,
+					"attributes": [
+						"purposeControlResearch"
+					]
 				}
 			}
 		}
