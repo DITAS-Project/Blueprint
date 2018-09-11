@@ -1,8 +1,8 @@
 {
 	"INTERNAL_STRUCTURE": {
 		"Overview": {
-			"name": "DITAS Machine 4 - Soraluce FS (discarded)",
-			"description": "VDC blueprint for the 'DITAS Machines 3 - Soraluce FS' at Ideko",
+			"name": "DITAS Machine 4 - Soraluce FS",
+			"description": "VDC blueprint for the 'DITAS Machines 4 - Soraluce FS' at Ideko",
 			"tags": [
 				{
 					"method_id": "GetHistoricalData",

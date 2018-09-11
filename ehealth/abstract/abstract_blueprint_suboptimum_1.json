@@ -1,8 +1,8 @@
 {
   "INTERNAL_STRUCTURE": {
     "Overview": {
-      "name": "osr_hospital_vdc_suboptimum_1",
-      "description": "This VDC provides information about biographical data and blood tests of the patients of Ospedale San Raffaele in Milan",
+      "name": "osr_hospital_vdc_hospital_A",
+      "description": "This VDC provides information about biographical data and blood tests of the patients of Hospital A",
       "tags": [
         {
           "method_id": "getPatientBiographicalData",
