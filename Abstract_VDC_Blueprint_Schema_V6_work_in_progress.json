@@ -126,6 +126,20 @@
                   "platform"
                ]
             },
+            "DAL_Images": {
+               "description": "Represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+               "type": "object",
+               "additionalProperties": {
+                 "type": "string"
+               }
+            },
+             "VDC_Images": {
+               "description": "Represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+               "type": "object",
+               "additionalProperties": {
+                 "type": "string"
+               }
+            },
             "Testing_Output_Data":{
                "type":"array",
                "items":{
@@ -242,125 +256,166 @@
 
       },
       "COOKBOOK_APPENDIX":{
-         "type":"object",
-         "description":"Deployment Information of the VDC Blueprint",
-         "properties":{
-            "name":{
-               "type":"string"
-            },
-            "description":{
-               "type":"string"
-            },
-            "Infrastructure":{
-               "type":"array",
-               "description":"an array with the description of the infrastructure",
-               "items":{
-                  "title":"an infrastructure definition",
-                  "type":"object",
-                  "properties":{
-                     "name":{
-                        "type":"string"
-                     },
-                     "description":{
-                        "type":"string"
-                     },
-                     "type":{
-                        "type":"string"
-                     },
-                     "on-line":{
-                        "type":"boolean"
-                     },
-                     "api_endpoint":{
-                        "type":"string"
-                     },
-                     "api_type":{
-                        "type":"string"
-                     },
-                     "keypair_id":{
-                        "type":"string"
-                     },
-                     "resources":{
-                        "type":"array",
-                        "items":{
-                           "type":"object",
-                           "properties":{
-                              "name":{
-                                 "type":"string"
-                              },
-                              "type":{
-                                 "type":"string"
-                              },
-                              "cpus":{
-                                 "type":"string"
-                              },
-                              "ram":{
-                                 "type":"string"
-                              },
-                              "disk":{
-                                 "type":"string"
-                              },
-                              "generate_ssh_keys":{
-                                 "type":"boolean"
-                              },
-                              "ssh_keys_id":{
-                                 "type":"string"
-                              },
-                              "role":{
-                                 "type":"string"
-                              },
-                              "baseimage":{
-                                 "type":"string"
-                              },
-                              "arch":{
-                                 "type":"string"
-                              },
-                              "os":{
-                                 "type":"string"
-                              }
+         "description": "Definition of the Cookbook Appendix section in the blueprint",
+         "type": "object",
+         "required": [
+           "name",
+           "infrastructure"
+         ],
+         "properties": {
+           "description": {
+             "description": "An optional description for the deployment",
+             "type": "string"
+           },
+           "infrastructure": {
+             "description": "A list of infrastructures that should be initialized to deploy VDCs of this blueprint",
+             "type": "array",
+             "items": {
+               "description": "Represents a cloud or edge site that's able to create resources such as virtual machines or volumes",
+               "type": "object",
+               "required": [
+                 "name",
+                 "type",
+                 "provider",
+                 "resources"
+               ],
+               "properties": {
+                 "description": {
+                   "description": "Optional description for the infrastructure",
+                   "type": "string"
+                 },
+                 "name": {
+                   "description": "Unique name for the infrastructure",
+                   "type": "string",
+                   "uniqueItems": true
+                 },
+                 "owner": {
+                   "description": "Owner of the infrastructure",
+                   "type": "string",
+                   "pattern": "DataOwner|DataConsumer|"
+                 },
+                 "provider": {
+                  "description": "Contains information about a cloud or edge provider",
+                  "type": "object",
+                  "properties": {
+                    "api_endpoint": {
+                      "description": "Endpoint to use for this infrastructure",
+                      "type": "string"
+                    },
+                    "api_type": {
+                      "description": "Type of the infrastructure. i.e AWS, Cloudsigma, GCP or Edge",
+                      "type": "string",
+                      "example": "AWS"
+                    },
+                    "authentication": {
+                      "description": "Authentication information to use on the provider.",
+                      "type": "object"
+                    }
+                  }
+                },
+                 "resources": {
+                   "description": "List of resources to deploy",
+                   "type": "array",
+                   "items": {
+                     "description": "Represents a resource such as a virtual machine",
+                     "type": "object",
+                     "required": [
+                       "role",
+                       "image_id"
+                     ],
+                     "properties": {
+                       "cores": {
+                         "description": "Number of cores. Ignored if type is provided",
+                         "type": "integer",
+                         "format": "int64"
+                       },
+                       "cpu": {
+                         "description": "CPU speed in MHz. Ignored if type is provided",
+                         "type": "integer",
+                         "format": "int64"
+                       },
+                       "disk": {
+                         "description": "Boot disk size in MB",
+                         "type": "integer",
+                         "format": "int64"
+                       },
+                       "drives": {
+                         "description": "List of data drives to attach to this VM",
+                         "type": "array",
+                         "items": {
+                           "description": "Contains the information of a data drive",
+                           "type": "object",
+                           "required": [
+                             "name",
+                             "type",
+                             "size"
+                           ],
+                           "properties": {
+                             "name": {
+                               "description": "Name of the image to use. Most of the times, it will be available as /dev/disk/by-id/${name} value in the VM",
+                               "type": "string"
+                             },
+                             "size": {
+                               "description": "Size of the disk in MB",
+                               "type": "integer",
+                               "format": "int64"
+                             },
+                             "type": {
+                               "description": "Type of the drive. It can be \"SSD\" or \"HDD\"",
+                               "type": "string",
+                               "pattern": "SSD|HDD",
+                               "example": "SSD"
+                             }
                            }
                         }
+                       },
+                       "image_id": {
+                         "description": "Boot image ID to use",
+                         "type": "string"
+                       },
+                       "ip": {
+                         "description": "IP to assign this VM. In case it's not specified, the first available one will be used.",
+                         "type": "string"
+                       },
+                       "name": {
+                         "description": "Suffix for the hostname. The real hostname will be formed of the infrastructure name + resource name",
+                         "type": "string"
+                       },
+                       "ram": {
+                         "description": "RAM quantity in MB. Ignored if type is provided",
+                         "type": "integer",
+                         "format": "int64"
+                       },
+                       "role": {
+                         "description": "Role that this VM plays. In case of a Kubernetes deployment at least one \"master\" is needed.",
+                         "type": "string",
+                         "pattern": "master|slave",
+                         "example": "master"
+                       },
+                       "type": {
+                         "description": "Type of the VM to create",
+                         "type": "string",
+                         "example": "n1-small"
+                       }
                      }
                   }
+                 },
+                 "type": {
+                   "description": "Type of the infrastructure",
+                   "type": "string",
+                   "pattern": "Cloud|Edge",
+                   "example": "Cloud"
+                 }
                }
-            },
-            "provision":{
-               "type":"object",
-               "properties":{
-                  "provisioner":{
-                     "type":"string"
-                  },
-                  "provisioner_src":{
-                     "type":"string"
-                  },
-                  "components":{
-                     "type":"array",
-                     "items":{
-                        "type":"object",
-                        "component_name":{
-                           "type":"string"
-                        }
-                     },
-                     "nodes":{
-                        "type":"array",
-                        "items":{
-                           "type":"string"
-                        }
-                     },
-                     "conf_descriptor":{
-                        "type":"string"
-                     },
-                     "params":{
-                        "type":"object",
-                        "additionalProperties":{
-                           "type":"string",
-                           "description":"node_names"
-                        }
-                     }
-                  }
-               }
-            }
+             }
+           },
+           "name": {
+             "description": "Unique name of the deployment",
+             "type": "string",
+             "uniqueItems": true
+           }
          }
-      },
+       },
       "EXPOSED_API":{
          "title":"CAF API",
          "type":"object",
