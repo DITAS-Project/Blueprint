@@ -228,7 +228,8 @@
                                           "type":[
                                              "string",
                                              "number",
-                                             "array"
+                                             "array",
+											 "boolean"
                                           ]
                                        }
                                     }
