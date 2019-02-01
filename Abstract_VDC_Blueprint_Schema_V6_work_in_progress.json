@@ -6,6 +6,60 @@
          "type":"object",
          "description":"General information about the VDC Blueprint",
          "properties":{
+            "methodsInput":{
+               "type":"object",
+               "description":"This filed contains the part of the data source that each method needs to be executed",
+               "properties":{
+                   "Methods":{
+                        "type":"array",
+                        "description":"The list of methods",
+                        "items":{
+                            "type":"object",
+                            "properties":{
+                                "method_id":{
+                                  "type":"string",
+                                  "description":"The id of the method (as indicated in the EXPOSED_API.paths field)"
+                                },
+                                "dataSources":{
+                                    "type":"array",
+                                    "description":"The list of data sources required by the method",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "dataSource_id":{
+                                                "type":"string",
+                                                "description":"The id of the data sources (as indicated in the Data_Sources.paths field"
+                                            },
+                                            "tables":{
+                                                "type":"array",
+                                                "description":"the list of tables/collections required by a method in a data source",
+                                                "items":{
+                                                    "type":"object",
+                                                    "description":"The list of columns/files in a table/collection",
+                                                    "properties":{
+                                                        "table_id":{
+                                                            "type":"string",
+                                                            "description":"The id of the tables/collection "
+                                                        },
+                                                        "columns":{
+                                                            "type":"array",
+                                                            "items":{
+                                                                "type":"string",
+                                                                "description":"The id of the column/field to be moved"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } 
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                   }
+                   
+               }
+            },
             "Overview":{
                "type":"object",
                "properties":{
