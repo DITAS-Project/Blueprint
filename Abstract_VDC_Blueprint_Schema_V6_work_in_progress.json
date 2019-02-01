@@ -168,8 +168,7 @@
          "required":[
             "Overview",
             "Data_Sources",
-            "Flow",
-            "Testing_Output_Data"
+            "Flow"
          ]
       },
       "DATA_MANAGEMENT":{
@@ -505,7 +504,13 @@
                      },
                      "minItems":1,
                      "uniqueItems":true
-                  }
+                  },
+				  "x-iam-roles":{
+				     "type":"array",
+					 "items":{
+                        "type":"string"
+                     }
+				  }	 
                },
                "required":[
                   "summary",
