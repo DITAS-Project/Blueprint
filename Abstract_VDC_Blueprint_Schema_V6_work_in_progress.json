@@ -6,7 +6,7 @@
          "type":"object",
          "description":"General information about the VDC Blueprint",
          "properties":{
-            "methodsInput":{
+            "Methods_Input":{
                "type":"object",
                "description":"This filed contains the part of the data source that each method needs to be executed",
                "properties":{
@@ -18,7 +18,7 @@
                             "properties":{
                                 "method_id":{
                                   "type":"string",
-                                  "description":"The id of the method (as indicated in the EXPOSED_API.paths field)"
+                                  "description":"The id (operationId) of the method (as indicated in the EXPOSED_API.paths field)"
                                 },
                                 "dataSources":{
                                     "type":"array",
@@ -28,7 +28,7 @@
                                         "properties":{
                                             "dataSource_id":{
                                                 "type":"string",
-                                                "description":"The id of the data sources (as indicated in the Data_Sources.paths field"
+                                                "description":"The id of the data sources (as indicated in the Data_Sources field)"
                                             },
                                             "tables":{
                                                 "type":"array",
