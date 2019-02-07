@@ -6,60 +6,6 @@
          "type":"object",
          "description":"General information about the VDC Blueprint",
          "properties":{
-            "Methods_Input":{
-               "type":"object",
-               "description":"This filed contains the part of the data source that each method needs to be executed",
-               "properties":{
-                   "Methods":{
-                        "type":"array",
-                        "description":"The list of methods",
-                        "items":{
-                            "type":"object",
-                            "properties":{
-                                "method_id":{
-                                  "type":"string",
-                                  "description":"The id (operationId) of the method (as indicated in the EXPOSED_API.paths field)"
-                                },
-                                "dataSources":{
-                                    "type":"array",
-                                    "description":"The list of data sources required by the method",
-                                    "items":{
-                                        "type":"object",
-                                        "properties":{
-                                            "dataSource_id":{
-                                                "type":"string",
-                                                "description":"The id of the data sources (as indicated in the Data_Sources field)"
-                                            },
-                                            "tables":{
-                                                "type":"array",
-                                                "description":"the list of tables/collections required by a method in a data source",
-                                                "items":{
-                                                    "type":"object",
-                                                    "description":"The list of columns/files in a table/collection",
-                                                    "properties":{
-                                                        "table_id":{
-                                                            "type":"string",
-                                                            "description":"The id of the tables/collection "
-                                                        },
-                                                        "columns":{
-                                                            "type":"array",
-                                                            "items":{
-                                                                "type":"string",
-                                                                "description":"The id of the column/field to be moved"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            } 
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                   }
-                   
-               }
-            },
             "Overview":{
                "type":"object",
                "properties":{
@@ -158,6 +104,60 @@
                "minItems":1,
                "uniqueItems":true
             },
+			"Methods_Input":{
+               "type":"object",
+               "description":"This filed contains the part of the data source that each method needs to be executed",
+               "properties":{
+                   "Methods":{
+                        "type":"array",
+                        "description":"The list of methods",
+                        "items":{
+                            "type":"object",
+                            "properties":{
+                                "method_id":{
+                                  "type":"string",
+                                  "description":"The id (operationId) of the method (as indicated in the EXPOSED_API.paths field)"
+                                },
+                                "dataSources":{
+                                    "type":"array",
+                                    "description":"The list of data sources required by the method",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "dataSource_id":{
+                                                "type":"string",
+                                                "description":"The id of the data sources (as indicated in the Data_Sources field)"
+                                            },
+                                            "tables":{
+                                                "type":"array",
+                                                "description":"the list of tables/collections required by a method in a data source",
+                                                "items":{
+                                                    "type":"object",
+                                                    "description":"The list of columns/files in a table/collection",
+                                                    "properties":{
+                                                        "table_id":{
+                                                            "type":"string",
+                                                            "description":"The id of the tables/collection "
+                                                        },
+                                                        "columns":{
+                                                            "type":"array",
+                                                            "items":{
+                                                                "type":"string",
+                                                                "description":"The id of the column/field to be moved"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } 
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                   }
+                   
+               }
+            },
             "Flow":{
                "type":"object",
                "description":"The data flow that implements the VDC",
@@ -174,11 +174,7 @@
                   "source_code":{
 
                   }
-               },
-               "additionalProperties":false,
-               "required":[
-                  "platform"
-               ]
+               }
             },
             "DAL_Images": {
                "description": "Represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
@@ -187,13 +183,54 @@
                  "type": "string"
                }
             },
-             "VDC_Images": {
+            "VDC_Images": {
                "description": "Represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
                "type": "object",
                "additionalProperties": {
                  "type": "string"
                }
             },
+			"Identity_Access_Management":{
+         "type":"object",
+         "properties":{
+            "jwks_uri":{
+               "type":"string"
+            },
+            "iam_endpoint":{
+               "type":"string"
+            },
+            "roles":{
+               "type":"array",
+               "items":{
+                  "type":"string"
+               },
+			   "minItems":1
+            },
+            "provider":{
+               "type":"array",
+               "items":{
+                  "type":"object",
+                  "properties":{
+                     "name":{
+                        "type":"string"
+                     },
+                     "type":{
+                        "type":"string"
+                     },
+                     "uri":{
+                        "type":"string"
+                     },
+                     "loginPortal":{
+                        "type":"string"
+                     }
+                  },
+				  "required":["name","uri"]
+               },
+			   "minItems":1
+            }
+         },
+		 "required":["jwks_uri","iam_endpoint"]
+      },
             "Testing_Output_Data":{
                "type":"array",
                "items":{
@@ -222,7 +259,7 @@
          "required":[
             "Overview",
             "Data_Sources",
-            "Flow"
+            "Methods_Input"
          ]
       },
       "DATA_MANAGEMENT":{
