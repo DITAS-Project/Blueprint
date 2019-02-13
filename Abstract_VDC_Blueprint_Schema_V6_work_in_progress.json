@@ -177,19 +177,63 @@
                }
             },
             "DAL_Images": {
-               "description": "Represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+               "description": "Docker images that must be deployed in the DAL indexed by DAL name. It will be used to compose the service name and the DNS entry that other images in the cluster can access to.",
                "type": "object",
                "additionalProperties": {
-                 "type": "string"
-               }
-            },
-            "VDC_Images": {
-               "description": "Represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
-               "type": "object",
-               "additionalProperties": {
-                 "type": "string"
-               }
-            },
+                 "description": "ImageSet represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+                 "type": "object",
+                 "additionalProperties": {
+                   "description": "ImageInfo is the information about an image that will be deployed by the deployment engine",
+                   "type": "object",
+                   "required": [
+                     "image"
+                   ],
+                   "properties": {
+                     "external_port": {
+                       "description": "Port in which this image must be exposed. It must be unique across all images in all the ImageSets defined in this blueprint. Due to limitations in k8s, the port range must be bewteen 30000 and 32767",
+                       "type": "integer",
+                       "format": "int64"
+                     },
+                     "image": {
+                       "description": "Image is the image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+                       "type": "string"
+                     },
+                     "internal_port": {
+                       "description": "Port in which the docker image is listening internally. Two images inside the same ImageSet can't have the same internal port.",
+                       "type": "integer",
+                       "format": "int64"
+                     }
+                   }
+                  }
+                 }
+               },
+               "VDC_Images": {
+                  "description": "ImageSet represents a set of docker images whose key is an identifier and value is a docker image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+                  "type": "object",
+                  "additionalProperties": {
+                    "description": "ImageInfo is the information about an image that will be deployed by the deployment engine",
+                    "type": "object",
+                    "required": [
+                      "image"
+                    ],
+                    "properties": {
+                      "external_port": {
+                        "description": "Port in which this image must be exposed. It must be unique across all images in all the ImageSets defined in this blueprint. Due to limitations in k8s, the port range must be bewteen 30000 and 32767",
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "image": {
+                        "description": "Image is the image name in the standard format [group]/\u003cimage_name\u003e:[release]",
+                        "type": "string"
+                      },
+                      "internal_port": {
+                        "description": "Port in which the docker image is listening internally. Two images inside the same ImageSet can't have the same internal port.",
+                        "type": "integer",
+                        "format": "int64"
+                      }
+                    }
+                  }
+               },
 			"Identity_Access_Management":{
          "type":"object",
          "properties":{
@@ -490,6 +534,13 @@
                        }
                      }
                   }
+                 },
+                 "tags": {
+                   "description": "List of tags to apply to this infrastructure",
+                   "type": "array",
+                   "items": {
+                     "type": "string"
+                   }
                  },
                  "type": {
                    "description": "Type of the infrastructure",
