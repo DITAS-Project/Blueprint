@@ -302,8 +302,7 @@
          "additionalProperties":false,
          "required":[
             "Overview",
-            "Data_Sources",
-            "Methods_Input"
+            "Data_Sources"
          ]
       },
       "DATA_MANAGEMENT":{
