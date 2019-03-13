@@ -81,12 +81,11 @@
                         ]
                      },
                      "type":{
-                        "type":"string",
-                        "examples":[
+                        "enum":[
                            "MySQL",
                            "Minio",
                            "InfluxDB",
-                           "rest"
+                           "other"
                         ]
                      },
                      "parameters":{
