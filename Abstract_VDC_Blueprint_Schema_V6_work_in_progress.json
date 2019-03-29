@@ -85,6 +85,7 @@
                            "MySQL",
                            "Minio",
                            "InfluxDB",
+						   "rest",
                            "other"
                         ]
                      },
