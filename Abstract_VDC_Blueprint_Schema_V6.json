@@ -104,59 +104,84 @@
                "minItems":1,
                "uniqueItems":true
             },
-            "Methods_Input":{
-               "type":"object",
-               "description":"This filed contains the part of the data source that each method needs to be executed",
-               "properties":{
-                  "Methods":{
-                     "type":"array",
-                     "description":"The list of methods",
-                     "items":{
-                        "type":"object",
-                        "properties":{
-                           "method_id":{
-                              "type":"string",
-                              "description":"The id (operationId) of the method (as indicated in the EXPOSED_API.paths field)"
-                           },
-                           "dataSources":{
-                              "type":"array",
-                              "description":"The list of data sources required by the method",
-                              "items":{
-                                 "type":"object",
-                                 "properties":{
-                                    "dataSource_id":{
-                                       "type":"string",
-                                       "description":"The id of the data sources (as indicated in the Data_Sources field)"
+              "Methods_Input": {
+                "type": "object",
+                "description": "This filed contains the part of the data source that each method needs to be executed",
+                "properties": {
+                  "Methods": {
+                    "type": "array",
+                    "description": "The list of methods",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "method_id": {
+                          "type": "string",
+                          "description": "The id (operationId) of the method (as indicated in the EXPOSED_API.paths field)"
+                        },
+                        "dataSources": {
+                          "type": "array",
+                          "description": "The list of data sources required by the method",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "dataSource_id": {
+                                "type": "string",
+                                "description": "The id of the data sources (as indicated in the Data_Sources field)"
+                              },
+                              "dataSource_type": {
+                                "type": "string",
+                                "description": "The type of the data sources (relationa/not_relational/object)"
+                              },
+                              "database": {
+                                "type": "array",
+                                "description": "the list of databases required by a method in a data source",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "database_id": {
+                                      "type": "string",
+                                      "description": "The id of the database"
                                     },
-                                    "tables":{
-                                       "type":"array",
-                                       "description":"the list of tables/collections required by a method in a data source",
-                                       "items":{
-                                          "type":"object",
-                                          "description":"The list of columns/files in a table/collection",
-                                          "properties":{
-                                             "table_id":{
-                                                "type":"string",
-                                                "description":"The id of the tables/collection "
-                                             },
-                                             "columns":{
-                                                "type":"array",
-                                                "items":{
-                                                   "type":"string",
-                                                   "description":"The id of the column/field to be moved"
+                                    "tables": {
+                                      "type": "array",
+                                      "description": "the list of tables/collections required by a method in a data source",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "table_id": {
+                                            "type": "string",
+                                            "description": "The id of the tables/collection "
+                                          },
+                                          "columns": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "column_id": {
+                                                  "type": "string",
+                                                  "description": "The id of the column/field"
+                                                },
+                                                "computeDataUtility": {
+                                                  "type": "Boolean",
+                                                  "description": "True if it is required for data utility computation"
                                                 }
-                                             }
+                                              }
+                                            }
                                           }
-                                       }
+                                        }
+                                      }
                                     }
-                                 }
+                                  }
+                                }
                               }
-                           }
+                            }
+                          }
                         }
-                     }
+                      }
+                    }
                   }
-               }
-            },
+                }
+              },
             "Flow":{
                "type":"object",
                "description":"The data flow that implements the VDC",
