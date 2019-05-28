@@ -162,7 +162,7 @@
                                                   "description": "The id of the column/field"
                                                 },
                                                 "computeDataUtility": {
-                                                  "type": "Boolean",
+                                                  "type": "boolean",
                                                   "description": "True if it is required for data utility computation"
                                                 }
                                               }
