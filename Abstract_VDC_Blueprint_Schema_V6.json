@@ -704,7 +704,7 @@
                }
             },
             "Resources": {
-               "description": "Deployment is a set of infrastructures that need to be instantiated or configurated to form clusters",
+               "description": "Resources is a set of infrastructures that need to be instantiated or configurated to form clusters",
                "type": "object",
                "required": [
                   "name",
