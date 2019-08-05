@@ -407,10 +407,6 @@
       "COOKBOOK_APPENDIX": {
          "description": "CookbookAppendix is the definition of the Cookbook Appendix section in the blueprint",
          "type": "object",
-         "required": [
-            "Resources",
-            "Deployment"
-         ],
          "properties": {
             "Identity_Access_Management": {
                "type": "object",
