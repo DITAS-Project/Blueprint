@@ -774,8 +774,7 @@
                                  "title": "ResourceType has information about a node that needs to be created by a deployer.",
                                  "required": [
                                     "name",
-                                    "disk",
-                                    "image_id"
+                                    "disk"
                                  ],
                                  "properties": {
                                     "cores": {
