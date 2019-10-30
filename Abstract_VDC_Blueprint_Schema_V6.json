@@ -757,7 +757,7 @@
                                     "description": "Credentials to access the cloud provider. Either this or secret_id is mandatory. Each cloud provider should define the format of this element.",
                                     "type": "object",
                                     "additionalProperties": {
-                                       "type": "string"
+                                       "type": ["string","object"]
                                     }
                                  },
                                  "secret_id": {
